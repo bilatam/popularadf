@@ -1,0 +1,398 @@
+{
+	"name": "SourceDataset_BI_PoliticaCli",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Plt_PK_Identificacion",
+				"type": "bigint"
+			},
+			{
+				"name": "Plt_FechaDatos",
+				"type": "date"
+			},
+			{
+				"name": "Plt_FK_IdCliente",
+				"type": "decimal"
+			},
+			{
+				"name": "Plt_PeriodicidadIngre",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_MontoEstimadoIngre",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_IngresosMillones",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_PeriodicidadEgre",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_MontoEstEgre",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_Egresosmillones",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_PromedioSalario",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_RelacionesPEP",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_PrimerApellido",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_SegundoApellido",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_Nombre",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_Cedula",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_Relacion",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_Puesto",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_Pignoracion",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_OrigenBienes",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_OtroOrigenBienes",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_DetalleBienes",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_PrimerApellidoBene",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_SegundoApellidoBene",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_NombreBeneficiario",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_TipoDocuBene",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_CedulaBene",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_RelacionBene",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_DetalleBene",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_PorcentajeBene",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_PriApeAccionista",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_SegApeAccionista",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_NombreAccionista",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_CedulaAccionista",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_PorcentajeAccionista",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_EsFuePEP",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_OrigenPEPAccio",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_ClienteJuridico",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_RepresentanteLegal",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_EsPEP",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_OrigenPepRepLegal",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_AgenteResidente",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_PrimerApeAgent",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_SegApeAgent",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_NombreAgent",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_NacionalidadAgent",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_TipoDocAgente",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_CedulaAgente",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_PaisResidenAgent",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_UbicacionAgent",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_PuntoReferenciaAgent",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_ApartadoPostal",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_TelefonoAgente",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_FaxAgente",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_CorreoAgente",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_FecNaciAgente",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_Producto",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_ProductoEspecial",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_CondicionProduc",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_FinalidadProduc",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_OtraFinalidadProduc",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_FondosMovilizar",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_FuenteFondos",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_NaturalezaNeg",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_VerificInfo",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_MenorEdad",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_GeneraMonExte",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_ClasifGroup",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_CategRiesgoActual",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_CategRiesgoPasada",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_TipInterCliente",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_ClientePEP",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_OrigenPEP",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_NivelEstrucProp",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_ActualizaPCSC",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_VencePCSC",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_RiesgoLCBP",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_ReferenciaLocal",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_EstadoRegistro",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_CantModif",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_Ingresador",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_FecUltModificacion",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_Autorizador",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_Oficina",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_CodigoDepto",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_CodigoAuditor",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_FecAuditoria",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_CapacidaPago",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_HistNormativa",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_CliTribOtroPaís",
+				"type": "varchar"
+			},
+			{
+				"name": "Plt_NumTin",
+				"type": "varchar"
+			},
+			{
+				"name": "Ptl_PaisResFiscal",
+				"type": "varchar"
+			},
+			{
+				"name": "Ptl_RazonesNoTin",
+				"type": "varchar"
+			},
+			{
+				"name": "Ptl_CotizaBolsa",
+				"type": "varchar"
+			},
+			{
+				"name": "Ptl_NomMercadoVal",
+				"type": "varchar"
+			},
+			{
+				"name": "Ptl_NacAccionista",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_PoliticaCli"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,22 @@
+{
+	"name": "Transformacion_DIM_Cliente",
+	"properties": {
+		"activities": [
+			{
+				"name": "SP_DWH_Carga_DIM_Cliente",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "SP_DWH_Carga_DIM_Cliente",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": false
+				}
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

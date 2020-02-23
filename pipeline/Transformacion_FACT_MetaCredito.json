@@ -1,0 +1,344 @@
+{
+	"name": "Transformacion_FACT_MetaCredito",
+	"properties": {
+		"activities": [
+			{
+				"name": "Carga_FACT_MetaCredito",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ini_DWH_Bitacora_MetaCredito",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "SP_DWH_Carga_FACT_MetaCredito",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Ini_Bitacora_MetaCredito",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extrae Tablas de Metas de Crédito de SISBI al Data Lake",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutándose",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - Transformacion_FACT_MetaCredito",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "1",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "CD_SISBI_BI_MetasCreditos",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ini_Bitacora_MetaCredito",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "CD_SISBI_BI_MetasCreditos",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "CD_SISBI_BI_Estacionalidad_creditos",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ini_Bitacora_MetaCredito",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "CD_SISBI_BI_Estacionalidad_creditos",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Fin_Bitacora_MetaCredito",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "CD_SISBI_BI_MetasCreditos",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "CD_SISBI_BI_Estacionalidad_creditos",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extrae Tablas de Metas de Crédito de SISBI al Data Lake",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Finalizado Exitosamente",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - Transformacion_FACT_MetaCredito",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_MetaCredito_Error",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "CD_SISBI_BI_Estacionalidad_creditos",
+						"dependencyConditions": [
+							"Failed"
+						]
+					},
+					{
+						"activity": "CD_SISBI_BI_MetasCreditos",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extrae Tablas de Metas de Crédito de SISBI al Data Lake",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Fallido",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - Transformacion_FACT_MetaCredito",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Ini_DWH_Bitacora_MetaCredito",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Fin_Bitacora_MetaCredito",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación FACT Meta Crédito",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutándose",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH_Carga_FACT_MetaCredito",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "1",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_DWH_Bitacora_MetaCredito",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Carga_FACT_MetaCredito",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación FACT Meta Crédito",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Finalizado Exitosamente",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH_Carga_FACT_MetaCredito",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_DWH_Bitacora_MetaCredito_Error",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Carga_FACT_MetaCredito",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación FACT Meta Crédito",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Fallido",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH_Carga_FACT_MetaCredito",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

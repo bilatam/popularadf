@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_o4q",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_BeneficiariosCuentas"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

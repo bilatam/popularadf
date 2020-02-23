@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_BI_NIVEL_ACADEMICO",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_NIVEL_ACADEMICO"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

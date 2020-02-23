@@ -1,0 +1,26 @@
+{
+	"name": "SourceDataset_BI_PaisNacionalidadCliente",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "PNC_PK_Id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PNC_Nombre_Corto",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_PaisNacionalidadCliente"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

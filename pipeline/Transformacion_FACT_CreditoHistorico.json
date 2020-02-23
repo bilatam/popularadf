@@ -1,0 +1,42 @@
+{
+	"name": "Transformacion_FACT_CreditoHistorico",
+	"properties": {
+		"activities": [
+			{
+				"name": "Extrae_BI_OperacionesHist",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "CD_SISBI_BI_OperacionesHist",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Carga_FACT_CreditoHistorico",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Extrae_BI_OperacionesHist",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "SP_DWH_Carga_FACT_CreditoHistorico",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,26 @@
+{
+	"name": "SourceDataset_BI_PasaTiemposCliente",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "PTC_PK_Id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PTC_Descripcion",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_PasaTiemposCliente"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_BI_DatosLocalesCli",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_DatosLocalesCli"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

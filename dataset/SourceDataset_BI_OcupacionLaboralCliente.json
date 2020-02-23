@@ -1,0 +1,26 @@
+{
+	"name": "SourceDataset_BI_OcupacionLaboralCliente",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "OLC_PK_Id",
+				"type": "varchar"
+			},
+			{
+				"name": "OLC_Descripcion",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_OcupacionLaboralCliente"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

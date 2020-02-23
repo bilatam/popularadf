@@ -1,0 +1,394 @@
+{
+	"name": "SourceDataset_MaestroOpe",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Mvd_PK_NumOperacion",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_PK_IdCliente",
+				"type": "bigint"
+			},
+			{
+				"name": "Mvd_FK_CodLinea",
+				"type": "int"
+			},
+			{
+				"name": "Mvd_FK_CodAgencia",
+				"type": "int"
+			},
+			{
+				"name": "Mvd_MontoPrincipal",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Opr_MontoSaldo",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_SaldoEmi",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_PolVid",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_PolInc",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_PolGan",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_PolVeh",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Comision",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Otro01",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Otro02",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Cuota",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Exceso",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_AhoCP",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_AhoRR",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_AhoAC",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_AhPrev",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_AcPrev",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Int180",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Int181",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_MonRem",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_MonVen",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_FechaCReal",
+				"type": "date"
+			},
+			{
+				"name": "Mvd_FechaConstitucion",
+				"type": "date"
+			},
+			{
+				"name": "Mvd_FechaUltPago",
+				"type": "date"
+			},
+			{
+				"name": "Mvd_FechaUltTr",
+				"type": "date"
+			},
+			{
+				"name": "Mvd_FechaUltMov",
+				"type": "date"
+			},
+			{
+				"name": "Mvd_FechaUltTa",
+				"type": "date"
+			},
+			{
+				"name": "Mvd_FechaUltTav",
+				"type": "date"
+			},
+			{
+				"name": "Mvd_FechaCreMa",
+				"type": "date"
+			},
+			{
+				"name": "Mvd_FechaVent",
+				"type": "date"
+			},
+			{
+				"name": "Mvd_TasaR",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Tasa",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Ponder",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Alfa",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Plazo",
+				"type": "int"
+			},
+			{
+				"name": "Mvd_CuotasPag",
+				"type": "int"
+			},
+			{
+				"name": "Mvd_FrePag",
+				"type": "int"
+			},
+			{
+				"name": "Mvd_AtraPe",
+				"type": "int"
+			},
+			{
+				"name": "Mvd_MesesGracia",
+				"type": "int"
+			},
+			{
+				"name": "Mvd_SeguiM",
+				"type": "int"
+			},
+			{
+				"name": "Mvd_Suspen",
+				"type": "int"
+			},
+			{
+				"name": "Mvd_CdActi",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_CodDestino",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_NumRem",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_PreVis",
+				"type": "int"
+			},
+			{
+				"name": "Mvd_Celula",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_Codigo",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_NoCode",
+				"type": "int"
+			},
+			{
+				"name": "Mvd_2DOAVI",
+				"type": "int"
+			},
+			{
+				"name": "Mvd_TipGar",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_NumerR",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Banda",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Formato",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_ImpAvi",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_AvisEmi",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_EstinD",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_TipPag",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_Estado",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_TipoTasa",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_SusRem",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_EstadoPig",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_Banvhi",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_Partid",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_Baja",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_Ventan",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_CapacidadPago",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_HistSUG",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_HistBCO",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_GeneradorDivisas",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_CRspec",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_ReClas",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_EstadoAnt",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_Rollo",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Fefilm",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Atraso",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_CuotaAtraso",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_Criter",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_CategoriaRiesgo",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_360Dias",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_MONEDA",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_CANCELA",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_TipoCuota",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_Filler",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_NOFIAD",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_LAG1",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_LAG2",
+				"type": "varchar"
+			},
+			{
+				"name": "Mvd_E2ANT",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_TPLUS",
+				"type": "decimal"
+			},
+			{
+				"name": "Mvd_FCarga",
+				"type": "date"
+			},
+			{
+				"name": "Mvd_Cedula",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_MaestroOpe"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

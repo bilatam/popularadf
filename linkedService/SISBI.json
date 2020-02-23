@@ -1,0 +1,17 @@
+{
+	"name": "SISBI",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=10.0.222.32;initial catalog=SISBI",
+			"userName": "ceoviedo@bpdcdes.com",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2NTM4NDNmNC02MDljLTQzMTktODY0OC00MzA2YTVmZjYzZTQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "PopularLocal",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

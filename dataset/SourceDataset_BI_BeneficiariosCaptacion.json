@@ -1,0 +1,38 @@
+{
+	"name": "SourceDataset_BI_BeneficiariosCaptacion",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Pvo_IDPasivo",
+				"type": "varchar"
+			},
+			{
+				"name": "lp",
+				"type": "decimal"
+			},
+			{
+				"name": "CedulasBeneficiarios",
+				"type": "varchar"
+			},
+			{
+				"name": "NombresBeneficiarios",
+				"type": "varchar"
+			},
+			{
+				"name": "PorcentajesBeneficiarios",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_BeneficiariosCaptacion"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

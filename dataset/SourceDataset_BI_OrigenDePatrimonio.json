@@ -1,0 +1,26 @@
+{
+	"name": "SourceDataset_BI_OrigenDePatrimonio",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "ODP_PK_Id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ODP_Descripcion",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_OrigenDePatrimonio"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

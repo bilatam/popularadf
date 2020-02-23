@@ -1,0 +1,82 @@
+{
+	"name": "SourceDataset_BI_Lineas",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Lin_PK_CodLinea",
+				"type": "int"
+			},
+			{
+				"name": "Lin_NumLinea",
+				"type": "int"
+			},
+			{
+				"name": "Lin_NombreLinea",
+				"type": "varchar"
+			},
+			{
+				"name": "Lin_NombreFO",
+				"type": "varchar"
+			},
+			{
+				"name": "Lin_FK_CodBanca",
+				"type": "smallint"
+			},
+			{
+				"name": "Lin_CarteraLinea",
+				"type": "varchar"
+			},
+			{
+				"name": "Lin_Producto",
+				"type": "varchar"
+			},
+			{
+				"name": "Lin_MonedaLinea",
+				"type": "smallint"
+			},
+			{
+				"name": "Lin_FK_CodDestino",
+				"type": "varchar"
+			},
+			{
+				"name": "Lin_FK_CodVend",
+				"type": "varchar"
+			},
+			{
+				"name": "Lin_FK_CodVent",
+				"type": "varchar"
+			},
+			{
+				"name": "Lin_FechaDesde",
+				"type": "date"
+			},
+			{
+				"name": "Lin_FechaActualizacion",
+				"type": "datetime"
+			},
+			{
+				"name": "lin_fk_codcartera",
+				"type": "smallint"
+			},
+			{
+				"name": "lin_fk_codProducto",
+				"type": "smallint"
+			},
+			{
+				"name": "Lin_FK_CodProdMeta",
+				"type": "smallint"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_Lineas"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

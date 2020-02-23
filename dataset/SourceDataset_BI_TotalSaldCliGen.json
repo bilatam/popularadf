@@ -1,0 +1,126 @@
+{
+	"name": "SourceDataset_BI_TotalSaldCliGen",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Spc_FechaActualizacion",
+				"type": "date"
+			},
+			{
+				"name": "Spc_FK_IdCliente",
+				"type": "bigint"
+			},
+			{
+				"name": "Tot_CantCuenCorr",
+				"type": "int"
+			},
+			{
+				"name": "Tot_SaldCtasCorr",
+				"type": "decimal"
+			},
+			{
+				"name": "Tot_CantVoluntario",
+				"type": "int"
+			},
+			{
+				"name": "Tot_SaldVoluntario",
+				"type": "decimal"
+			},
+			{
+				"name": "Tot_CantProgra",
+				"type": "int"
+			},
+			{
+				"name": "Tot_SaldProgra",
+				"type": "decimal"
+			},
+			{
+				"name": "Tot_Cantplazo",
+				"type": "int"
+			},
+			{
+				"name": "Tot_SaldPlazo",
+				"type": "decimal"
+			},
+			{
+				"name": "Tot_CantCredFinan",
+				"type": "int"
+			},
+			{
+				"name": "Tot_SaldCredfiana",
+				"type": "decimal"
+			},
+			{
+				"name": "Tot_CantCredDesa",
+				"type": "int"
+			},
+			{
+				"name": "Tot_SaldCredDesa",
+				"type": "decimal"
+			},
+			{
+				"name": "Tot_CantCredSoci",
+				"type": "int"
+			},
+			{
+				"name": "Tot_SaldCredSoci",
+				"type": "decimal"
+			},
+			{
+				"name": "Tot_CantVisa",
+				"type": "int"
+			},
+			{
+				"name": "Tot_SaldCredVisa",
+				"type": "decimal"
+			},
+			{
+				"name": "Tot_CantGaraHipot",
+				"type": "int"
+			},
+			{
+				"name": "Tot_SaldCredGaranHipotec",
+				"type": "decimal"
+			},
+			{
+				"name": "Tot_CantCredPerHipo",
+				"type": "int"
+			},
+			{
+				"name": "Tot_SaldCredPersoHipo",
+				"type": "decimal"
+			},
+			{
+				"name": "Tot_CantCredVivi",
+				"type": "int"
+			},
+			{
+				"name": "Tot_SaldCredVivi",
+				"type": "decimal"
+			},
+			{
+				"name": "Tot_CantNaranja",
+				"type": "int"
+			},
+			{
+				"name": "Tot_SaldNaranja",
+				"type": "decimal"
+			},
+			{
+				"name": "T_tarjeDebito",
+				"type": "nchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_TotalSaldCliGen"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

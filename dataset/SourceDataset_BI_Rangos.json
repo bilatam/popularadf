@@ -1,0 +1,38 @@
+{
+	"name": "SourceDataset_BI_Rangos",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Ran_PK_CodRango",
+				"type": "smallint"
+			},
+			{
+				"name": "Ran_InicioRango",
+				"type": "varchar"
+			},
+			{
+				"name": "Ran_FinRango",
+				"type": "varchar"
+			},
+			{
+				"name": "Ran_Descripcion",
+				"type": "varchar"
+			},
+			{
+				"name": "Ran_TipoRango",
+				"type": "smallint"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_Rangos"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

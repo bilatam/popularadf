@@ -1,0 +1,21 @@
+{
+	"name": "DestinationDataset_g33",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DL_Popular",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureDataLakeStoreLocation",
+				"fileName": "BI_MetasCreditos",
+				"folderPath": "SISBI"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

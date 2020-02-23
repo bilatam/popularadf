@@ -1,0 +1,30 @@
+{
+	"name": "SourceDataset_BI_ESTADO_DEL_CLIENTE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "EDC_PK_Id",
+				"type": "decimal"
+			},
+			{
+				"name": "Descripcion",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EDC_Descripcion_Corta",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_ESTADO_DEL_CLIENTE"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

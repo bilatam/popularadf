@@ -1,0 +1,474 @@
+{
+	"name": "SourceDataset_BI_Clientes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Cli_PK_IdCliente",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_IdT24",
+				"type": "decimal"
+			},
+			{
+				"name": "Repetido",
+				"type": "bit"
+			},
+			{
+				"name": "Cli_CedCorta",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_CedLarga",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_FK_TipoIdCliente",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_FK_TipoIdDocumento",
+				"type": "tinyint"
+			},
+			{
+				"name": "Cli_Nombre",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_CcNombre",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_Apellidos",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_Apellido1",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_Apellido2",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_Direccion",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_FK_CodDistrito",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_UbicacionPostal",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_SectorCli",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_FK_CodOficina",
+				"type": "bigint"
+			},
+			{
+				"name": "Cli_OtraOficina",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_FK_ActividadEconomica",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_FK_Microsegmento",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_FechaNacimiento",
+				"type": "date"
+			},
+			{
+				"name": "Cli_FechaVenciCed",
+				"type": "date"
+			},
+			{
+				"name": "Cli_Nacionalidad",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_FK_EstadoCivil",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_EstadoTrabajador",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_Ocupacion",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_FK_Puesto",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_EmpresaTrabaja",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_EmpresaADD",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_FechaInicioEmpresa",
+				"type": "date"
+			},
+			{
+				"name": "Cli_EgresoNeto",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_IngresoNeto",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_SalBruto",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_SalLiquido",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_FrecuenciaSalario",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_FK_RangoSalario",
+				"type": "smallint"
+			},
+			{
+				"name": "Cli_CodOcupacion",
+				"type": "char"
+			},
+			{
+				"name": "Cli_TipoResidencia",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_Telefono1",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_Telefono2",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_Telefono3",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_Pasatiempos",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_OtroDetalles",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_Genero",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_CapPago",
+				"type": "smallint"
+			},
+			{
+				"name": "Cli_NivelHistoSugef",
+				"type": "tinyint"
+			},
+			{
+				"name": "Cli_NivelHistoBco",
+				"type": "tinyint"
+			},
+			{
+				"name": "Cli_GenDivisas",
+				"type": "char"
+			},
+			{
+				"name": "Cli_FK_CodCategRiesgo",
+				"type": "char"
+			},
+			{
+				"name": "Cli_CodGrupo",
+				"type": "char"
+			},
+			{
+				"name": "Cli_CodEstadoCli",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_Email",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_UltSalarioPAS",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_FecUltSalarioPAS",
+				"type": "date"
+			},
+			{
+				"name": "Cli_FK_CodPatrono",
+				"type": "bigint"
+			},
+			{
+				"name": "Cli_CodEmpresa",
+				"type": "smallint"
+			},
+			{
+				"name": "Cli_CuentaAhorro",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_CuentaCorriente",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_Pas",
+				"type": "bit"
+			},
+			{
+				"name": "Cli_Domicilio",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_TipoRiesgo",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_NivelRiesgo",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_ToleranciaRiesgo",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_FechaRiesgo",
+				"type": "date"
+			},
+			{
+				"name": "Cli_ServInternetBank",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_ServCelBank",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_EstadoCliente",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_FechaContacto",
+				"type": "date"
+			},
+			{
+				"name": "Cli_CalificacionCliente",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_CantDependientes",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_MonedaCliente",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_CanalPreferido",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_ClienteDesde",
+				"type": "date"
+			},
+			{
+				"name": "Cli_TipoCliente",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_FechaUltVerificacion",
+				"type": "date"
+			},
+			{
+				"name": "Cli_ReferenciaLocal",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_EstadoCrediticio",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_DiasVenciCed",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_TPersoneriaGeneral",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_TipCliente",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_AnoNaci",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_MesNaci",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_DiaNaci",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_Edad",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_CumpleActual",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_CumplePost",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_AnoAfilia",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_MesAfilia",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_DiaAfilia",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_AnosAfiliacion",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_RegistraJuridico",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_SectorJuridico",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_SectorEmpresarial",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_DeudaExterna",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_EsNuevo",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_UsuarioAutoriza",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_PropRelCode",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_SegIngresos",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_SegBancaria",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_FechaModificacion",
+				"type": "date"
+			},
+			{
+				"name": "Cli_FechaDatos",
+				"type": "date"
+			},
+			{
+				"name": "Cli_FechaCarga",
+				"type": "date"
+			},
+			{
+				"name": "Cli_PaisResidencia",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_PostingRestric",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_FK_CodAgenCri",
+				"type": "bigint"
+			},
+			{
+				"name": "Cli_CondCli",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_BancaCli",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_FK_NivelAcademico",
+				"type": "decimal"
+			},
+			{
+				"name": "Cli_CaserioBarrio",
+				"type": "varchar"
+			},
+			{
+				"name": "cli_residencia",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_Alertas",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_Funcionario",
+				"type": "bit"
+			},
+			{
+				"name": "Cli_RelCustomer",
+				"type": "varchar"
+			},
+			{
+				"name": "Cli_ReversRelCode",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_Clientes"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

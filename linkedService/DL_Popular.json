@@ -1,0 +1,14 @@
+{
+	"name": "DL_Popular",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDataLakeStore",
+		"typeProperties": {
+			"dataLakeStoreUri": "https://serdldev.azuredatalakestore.net/webhdfs/v1",
+			"tenant": "2d4feb35-6363-4b6c-94e0-a60d04fa4f02",
+			"subscriptionId": "51eba0b9-05dd-461f-828f-5eae2263a095",
+			"resourceGroupName": "ProyectoBIRG"
+		}
+	}
+}

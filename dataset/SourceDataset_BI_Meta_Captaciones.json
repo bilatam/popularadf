@@ -1,0 +1,94 @@
+{
+	"name": "SourceDataset_BI_Meta_Captaciones",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Cat_pk_idCategoria",
+				"type": "float"
+			},
+			{
+				"name": "Cat_Descripcion",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cat_Producto",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cat_CodProducto",
+				"type": "float"
+			},
+			{
+				"name": "Cat_CodVencido",
+				"type": "bit"
+			},
+			{
+				"name": "Cat_AplicaProd",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cat_Orden",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cat_NombreCorto",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Age_PK_CodAgencia",
+				"type": "float"
+			},
+			{
+				"name": "Age_Nombre",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sucursal",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Reg_Region",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BZ_SubRegion",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TO_TipoOficina",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cod_RegAsig",
+				"type": "float"
+			},
+			{
+				"name": "Cod_SucuAsig",
+				"type": "float"
+			},
+			{
+				"name": "Cod_SubReg",
+				"type": "float"
+			},
+			{
+				"name": "Meta_Anual",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Anno",
+				"type": "float"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_Meta_Captaciones"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

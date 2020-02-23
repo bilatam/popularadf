@@ -1,0 +1,34 @@
+{
+	"name": "SourceDataset_xdr",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Tmd_Id",
+				"type": "bigint"
+			},
+			{
+				"name": "Tmd_PK_CodTipoMoneda",
+				"type": "int"
+			},
+			{
+				"name": "Tmd_TipoMoneda",
+				"type": "varchar"
+			},
+			{
+				"name": "Tmd_FechaCarga",
+				"type": "datetime"
+			}
+		],
+		"typeProperties": {
+			"schema": "Comun",
+			"table": "BI_TiposMonedas"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

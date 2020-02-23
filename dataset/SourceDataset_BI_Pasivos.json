@@ -1,0 +1,202 @@
+{
+	"name": "SourceDataset_BI_Pasivos",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Pvo_FechaDatos",
+				"type": "date"
+			},
+			{
+				"name": "Pvo_IDPasivo",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_FK_IDCliente",
+				"type": "decimal"
+			},
+			{
+				"name": "Pvo_Moneda",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_FK_OficinaProd",
+				"type": "bigint"
+			},
+			{
+				"name": "Pvo_ID390",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_UltCredFecha",
+				"type": "date"
+			},
+			{
+				"name": "Pvo_UltCredMonto",
+				"type": "decimal"
+			},
+			{
+				"name": "Pvo_UltCredCodigo",
+				"type": "bigint"
+			},
+			{
+				"name": "Pvo_UltTCredBancoFecha",
+				"type": "date"
+			},
+			{
+				"name": "Pvo_UltTCredBancoMonto",
+				"type": "decimal"
+			},
+			{
+				"name": "Pvo_UltTCredBancoCodigo",
+				"type": "bigint"
+			},
+			{
+				"name": "Pvo_UltDebFecha",
+				"type": "date"
+			},
+			{
+				"name": "Pvo_UltDebMonto",
+				"type": "decimal"
+			},
+			{
+				"name": "Pvo_UltDebCodigo",
+				"type": "bigint"
+			},
+			{
+				"name": "Pvo_UltTDebBancoFecha",
+				"type": "date"
+			},
+			{
+				"name": "Pvo_UltTDebBancoMonto",
+				"type": "decimal"
+			},
+			{
+				"name": "Pvo_UltTDebBancoCodigo",
+				"type": "bigint"
+			},
+			{
+				"name": "Pvo_CredCargoCapFecha",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_CredIntCapFecha",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_Cred2IntCapFecha",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_DebIntCapFecha",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_Deb2IntCapFecha",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_CategContable",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_TCodPagoInt",
+				"type": "bigint"
+			},
+			{
+				"name": "Pvo_FechaApertProd",
+				"type": "date"
+			},
+			{
+				"name": "Pvo_CatApertProd",
+				"type": "decimal"
+			},
+			{
+				"name": "Pvo_MonePagoInt",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_IDAutorizados",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_CodRelacAutor",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_Observaciones",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_FechaBloqFond",
+				"type": "date"
+			},
+			{
+				"name": "Pvo_MontoBloqFond",
+				"type": "decimal"
+			},
+			{
+				"name": "Pvo_CtaCteProducto",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_CantModfCuenta",
+				"type": "bigint"
+			},
+			{
+				"name": "Pvo_FechaUltModfCta",
+				"type": "date"
+			},
+			{
+				"name": "Pvo_Estado",
+				"type": "bit"
+			},
+			{
+				"name": "Pvo_ReferenciaLocal",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_UsuarioAutoriza",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_FechaCarga",
+				"type": "date"
+			},
+			{
+				"name": "Pvo_SobreGiro",
+				"type": "decimal"
+			},
+			{
+				"name": "Pvo_GrupoInt",
+				"type": "decimal"
+			},
+			{
+				"name": "Pvo_fk_IDpasivoPadre",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_NombreCorto",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_CtaLiqInt",
+				"type": "varchar"
+			},
+			{
+				"name": "Pvo_Restricciones",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_Pasivos"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

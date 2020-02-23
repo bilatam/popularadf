@@ -1,0 +1,24 @@
+{
+	"name": "DestinationDataset_BI_PaisNacionalidadCliente",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DL_Popular",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureDataLakeStoreLocation",
+				"fileName": "BI_PaisNacionalidadCliente",
+				"folderPath": "SISBI"
+			},
+			"compressionCodec": "snappy",
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

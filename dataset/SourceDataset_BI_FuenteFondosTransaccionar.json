@@ -1,0 +1,30 @@
+{
+	"name": "SourceDataset_BI_FuenteFondosTransaccionar",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "FFT_PK_Id",
+				"type": "bigint"
+			},
+			{
+				"name": "FFT_Descripcion",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FFT_FK_Id_text",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_FuenteFondosTransaccionar"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

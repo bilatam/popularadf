@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_BI_OperacionesHist",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_OperacionesHist"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

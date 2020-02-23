@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_BI_PasivosFechas",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_PasivosFechas"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

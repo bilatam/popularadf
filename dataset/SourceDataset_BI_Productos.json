@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_BI_Productos",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_Productos"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,50 @@
+{
+	"name": "SourceDataset_BI_SaldosPorClientes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Spc_IdSaldo",
+				"type": "bigint"
+			},
+			{
+				"name": "Spc_FK_IdCliente",
+				"type": "bigint"
+			},
+			{
+				"name": "Spc_CantidadProduct",
+				"type": "int"
+			},
+			{
+				"name": "Spc_MontoSaldo",
+				"type": "decimal"
+			},
+			{
+				"name": "Spc_Moneda",
+				"type": "varchar"
+			},
+			{
+				"name": "Spc_CodProducto",
+				"type": "int"
+			},
+			{
+				"name": "Spc_Producto",
+				"type": "varchar"
+			},
+			{
+				"name": "Spc_FechaActualizacion",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_SaldosPorClientes"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

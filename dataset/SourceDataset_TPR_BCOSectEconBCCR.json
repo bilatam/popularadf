@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_TPR_BCOSectEconBCCR",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Catalogo",
+			"table": "TPR_BCOSectEconBCCR"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

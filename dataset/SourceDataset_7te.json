@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_7te",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Sicere",
+			"table": "BI_PatronosSicere"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

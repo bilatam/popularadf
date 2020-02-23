@@ -1,0 +1,22 @@
+{
+	"name": "Transformacion_FACT_Credito",
+	"properties": {
+		"activities": [
+			{
+				"name": "SP_DWH_Carga_FACT_Credito",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "SP_DWH_Carga_FACT_Credito",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": false
+				}
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

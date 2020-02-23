@@ -1,0 +1,46 @@
+{
+	"name": "SourceDataset_PatronosSIC",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Ptr_Id",
+				"type": "bigint"
+			},
+			{
+				"name": "Ptr_PK_Cedula",
+				"type": "varchar"
+			},
+			{
+				"name": "Ptr_NumPatrono",
+				"type": "varchar"
+			},
+			{
+				"name": "Ptr_Nombre",
+				"type": "varchar"
+			},
+			{
+				"name": "Ptr_Direccion",
+				"type": "varchar"
+			},
+			{
+				"name": "Ptr_Telefono",
+				"type": "varchar"
+			},
+			{
+				"name": "Ptr_CodDistrito",
+				"type": "decimal"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_PatronosSIC"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

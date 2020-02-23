@@ -1,0 +1,30 @@
+{
+	"name": "SourceDataset_BI_AmbitoActividadEcononica",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "AAE_PK_CODIGO",
+				"type": "bigint"
+			},
+			{
+				"name": "AAE_Descripcion",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AAE_FK_COD",
+				"type": "nchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_AmbitoActividadEcononica"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

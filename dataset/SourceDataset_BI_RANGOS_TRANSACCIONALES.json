@@ -1,0 +1,34 @@
+{
+	"name": "SourceDataset_BI_RANGOS_TRANSACCIONALES",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "RT_PK_Id",
+				"type": "varchar"
+			},
+			{
+				"name": "RT_Descripcion",
+				"type": "varchar"
+			},
+			{
+				"name": "RT_TIPO_CLIENTE",
+				"type": "varchar"
+			},
+			{
+				"name": "RT_FK_ID",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_RANGOS_TRANSACCIONALES"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

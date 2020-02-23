@@ -1,0 +1,18 @@
+{
+	"name": "CreditosTrigger",
+	"properties": {
+		"description": "Creditos update",
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1,
+				"startTime": "2019-11-15T11:20:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

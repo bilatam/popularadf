@@ -1,0 +1,66 @@
+{
+	"name": "SourceDataset_BI_EjecutivosDesarro",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Dse_PK_Identificador",
+				"type": "bigint"
+			},
+			{
+				"name": "Dse_FK_CodOficina",
+				"type": "int"
+			},
+			{
+				"name": "Dse_CedVendedor",
+				"type": "varchar"
+			},
+			{
+				"name": "Dse_FK_CodVend",
+				"type": "varchar"
+			},
+			{
+				"name": "Dse_Nombre",
+				"type": "varchar"
+			},
+			{
+				"name": "Dse_Estado",
+				"type": "varchar"
+			},
+			{
+				"name": "Dse_OPD",
+				"type": "varchar"
+			},
+			{
+				"name": "Dse_Perfil",
+				"type": "varchar"
+			},
+			{
+				"name": "Dse_FecIngBD",
+				"type": "date"
+			},
+			{
+				"name": "Dse_FecIngBPDC",
+				"type": "date"
+			},
+			{
+				"name": "Dse_Correo",
+				"type": "varchar"
+			},
+			{
+				"name": "Dse_Telefonos",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_EjecutivosDesarro"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

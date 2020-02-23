@@ -1,0 +1,622 @@
+{
+	"name": "Transformacion_CaptacionHistorico",
+	"properties": {
+		"activities": [
+			{
+				"name": "Ini_Bitacora_Captacion",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extrae Tablas de Captación Histórico de SISBI al Data Lake ",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutándose",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - Transformacion_CaptacionHistorico",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "1",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Extrae_Captacion",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Extraer_Captacion",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extrae Tablas de Captación Histórico de SISBI al Data Lake",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Finalizado Exitosamente",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - Transformacion_CaptacionHistorico",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Ini_Bitacora_DWH_Extrae_Captacion",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Fin_Bitacora_Extrae_Captacion",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extracción de Tablas de Captación Histórico al STAGE",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutándose",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Extraer_Captacion",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "1",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "SP_DWH_Extraer_Captacion",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ini_Bitacora_DWH_Extrae_Captacion",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "SP_DWH_Extraer_Captacion",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Fin_Bitacora_DWH_Extrae_Captacion",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "SP_DWH_Extraer_Captacion",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extracción de Tablas de Captación Histórico al STAGE",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Finalizado Exitosamente",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Extraer_Captacion",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Ini_Bitacora_Transformacion_DIM_Captacion",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Fin_Bitacora_DWH_Extrae_Captacion",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación DIM Captación Histórico",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutándose",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_DIM_Captacion",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "1",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Captacion_Error",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Extraer_Captacion",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extrae Tablas de Captación Histórico de SISBI al Data Lake",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Fallido",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - Transformacion_CaptacionHistorico",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Transformacion_DIM_Captacion",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ini_Bitacora_Transformacion_DIM_Captacion",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Transformacion_DIM_Captacion",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Transformacion_DIM_Captacion",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Transformacion_DIM_Captacion",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación DIM Captación Histórico",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Finalizado Exitosamente",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_DIM_Captacion",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_DWH_Extrae_Captacion_Error",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "SP_DWH_Extraer_Captacion",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extracción de Tablas de Captación Histórico al STAGE",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Fallido",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Extraer_Captacion",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Transformacion_DIM_Captacion_Error",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Transformacion_DIM_Captacion",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación DIM Captacion Histórico",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Fallido",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_DIM_Captacion",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Transformacion_FACT_CaptacionHistorico",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ini_Bitacora_FACT_Captacion",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "SP_DWH_Carga_FACT_CaptacionHistorico",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Ini_Bitacora_FACT_Captacion",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Fin_Bitacora_Transformacion_DIM_Captacion",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación FACT Captación Histórico",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutándose",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_FACT_CaptacionHistorocp",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "1",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Transformacion_FACT_Captacion",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Transformacion_FACT_CaptacionHistorico",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación FACT Captación Histórico",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Finalizado Exitosamente",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_FACT_CaptacionHistorico",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Transformacion_FACT_Captacion_Error",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Transformacion_FACT_CaptacionHistorico",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación FACT Captación Histórico",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Fallido",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_FACT_CaptacionHistorico",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Extraer_Captacion",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ini_Bitacora_Captacion",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Extrae_Captacion",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

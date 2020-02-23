@@ -1,0 +1,110 @@
+{
+	"name": "SourceDataset_BI_CICDeudores",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Cic_PK_CodDeudor",
+				"type": "bigint"
+			},
+			{
+				"name": "Cic_FK_IdCliente",
+				"type": "decimal"
+			},
+			{
+				"name": "Cic_CedulaCorta",
+				"type": "varchar"
+			},
+			{
+				"name": "Cic_CedulaLarga",
+				"type": "varchar"
+			},
+			{
+				"name": "Cic_NivelBCO",
+				"type": "tinyint"
+			},
+			{
+				"name": "Cic_NivelSUG",
+				"type": "tinyint"
+			},
+			{
+				"name": "Cic_FechaDatos",
+				"type": "varchar"
+			},
+			{
+				"name": "Cic_Ind",
+				"type": "decimal"
+			},
+			{
+				"name": "Cic_CP",
+				"type": "varchar"
+			},
+			{
+				"name": "Cic_Act",
+				"type": "varchar"
+			},
+			{
+				"name": "Cic_FecAutor",
+				"type": "date"
+			},
+			{
+				"name": "Cic_DeudaMN",
+				"type": "decimal"
+			},
+			{
+				"name": "Cic_DeudaME",
+				"type": "decimal"
+			},
+			{
+				"name": "Cic_MonxDesMN",
+				"type": "decimal"
+			},
+			{
+				"name": "Cic_MonxDesME",
+				"type": "decimal"
+			},
+			{
+				"name": "Cic_MonFianza",
+				"type": "decimal"
+			},
+			{
+				"name": "Cic_CuotaMN",
+				"type": "decimal"
+			},
+			{
+				"name": "Cic_CuotaME",
+				"type": "decimal"
+			},
+			{
+				"name": "Cic_DeudaTot",
+				"type": "decimal"
+			},
+			{
+				"name": "Cic_CuotaTot",
+				"type": "decimal"
+			},
+			{
+				"name": "Cic_CuotaBP",
+				"type": "decimal"
+			},
+			{
+				"name": "Cic_CuotaEx",
+				"type": "decimal"
+			},
+			{
+				"name": "Cic_SaldoBP",
+				"type": "decimal"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_CICDeudores"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

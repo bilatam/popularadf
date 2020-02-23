@@ -1,0 +1,30 @@
+{
+	"name": "SourceDataset_BI_EstadoDelProducto",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "EDP_PK_Id",
+				"type": "bigint"
+			},
+			{
+				"name": "EDP_Descripcion",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EDP_FK_ID_TEX",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_EstadoDelProducto"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

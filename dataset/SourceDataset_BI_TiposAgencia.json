@@ -1,0 +1,26 @@
+{
+	"name": "SourceDataset_BI_TiposAgencia",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Tpa_PK_CodTipoAgencia",
+				"type": "smallint"
+			},
+			{
+				"name": "Tpa_DescripcionAgencia",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_TiposAgencia"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

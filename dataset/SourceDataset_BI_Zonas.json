@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_BI_Zonas",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_Zonas"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

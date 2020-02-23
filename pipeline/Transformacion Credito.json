@@ -1,0 +1,42 @@
+{
+	"name": "Transformacion Credito",
+	"properties": {
+		"activities": [
+			{
+				"name": "SP_DWH_Eliminar_STAGE",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Transformacion_NodefinidoCredito",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "SP_DWH_Elimina_Stage",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Transformacion_NodefinidoCredito",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Transformacion_NodefinidoCredito",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

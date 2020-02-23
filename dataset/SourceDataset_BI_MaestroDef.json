@@ -1,0 +1,82 @@
+{
+	"name": "SourceDataset_BI_MaestroDef",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Mde_CitaDefuncion",
+				"type": "varchar"
+			},
+			{
+				"name": "Mde_FK_IdCliente",
+				"type": "decimal"
+			},
+			{
+				"name": "Mde_CitaNacimiento",
+				"type": "varchar"
+			},
+			{
+				"name": "Mde_CCNombre",
+				"type": "varchar"
+			},
+			{
+				"name": "Mde_Nombre",
+				"type": "varchar"
+			},
+			{
+				"name": "Mde_CCPrimerApellido",
+				"type": "varchar"
+			},
+			{
+				"name": "Mde_PrimerApellido",
+				"type": "varchar"
+			},
+			{
+				"name": "Mde_CCSegundoApellido",
+				"type": "varchar"
+			},
+			{
+				"name": "Mde_SegundoApellido",
+				"type": "varchar"
+			},
+			{
+				"name": "Mde_SitioDefuncion",
+				"type": "varchar"
+			},
+			{
+				"name": "Mde_FechaDefuncion",
+				"type": "date"
+			},
+			{
+				"name": "Mde_HoraDefuncion",
+				"type": "varchar"
+			},
+			{
+				"name": "Mde_IndExtranjero",
+				"type": "tinyint"
+			},
+			{
+				"name": "Mde_IndNacimiento",
+				"type": "tinyint"
+			},
+			{
+				"name": "Mde_Sexo",
+				"type": "tinyint"
+			},
+			{
+				"name": "Mde_FechaDatos",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_MaestroDef"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

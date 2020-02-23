@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_BI_TipoDeduccion",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_TipoDeduccion"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

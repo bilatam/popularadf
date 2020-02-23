@@ -1,0 +1,622 @@
+{
+	"name": "Transformacion_General",
+	"properties": {
+		"activities": [
+			{
+				"name": "Ini_Bitacora_Gener",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extrae al Data lake catálogos generales de SISBI",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutándose",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - Transformacion_General",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "1",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Gener",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Extraer_General",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extrae al Data lake catálogos generales de SISBI",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Finalizado Exitosamente",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - Transformacion_General",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Ini_Bitacora_DWH_Extrae_GEneral",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Fin_Bitacora_Gener",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extracción Catálogos Generales al STAGE",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutándose",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Extraer_General",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "1",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "SP_DWH_Extraer_General",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ini_Bitacora_DWH_Extrae_GEneral",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "SP_DWH_Extraer_General",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Fin_Bitacora_DWH_Extrae_General",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "SP_DWH_Extraer_General",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extracción Catálogos Generales al STAGE",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Finalizado Exitosamente",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Extraer_General",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Ini_Bitacora_Transformacion_DIM_General",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Fin_Bitacora_DWH_Extrae_General",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación DIM Generales",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutándose",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_General",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "1",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_General_Error",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Extraer_General",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extrae al Data lake catálogos generales de SISBI",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Fallido",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - Transformacion_General",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Transformacion_DIM_General",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ini_Bitacora_Transformacion_DIM_General",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Transformacion_DIM_General",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Transformacion_DIM_General",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Transformacion_DIM_General",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación DIM Generales",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Finalizado Exitosamente",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_General",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_DWH_Extrae_General_Error",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "SP_DWH_Extraer_General",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Extracción Catálogos Generales al STAGE",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Fallido",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Extraer_General",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Transformacion_DIM_General_Error",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Transformacion_DIM_General",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación DIM Generales",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Fallido",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_General",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Extraer_General",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ini_Bitacora_Gener",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Extraer_General",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Ini_Bitacora_Carga_NoDefinido_General",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Fin_Bitacora_Transformacion_DIM_General",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Carga No Definido DIM General",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutándose",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Carga_NoDefinido_General",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "1",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "SP_DWH_Carga_NoDefinido_General",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ini_Bitacora_Carga_NoDefinido_General",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "SP_DWH_Carga_NoDefinido_General",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Carga_NoDefinido_General",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "SP_DWH_Carga_NoDefinido_General",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Carga No Definido DIM General",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Finalizado Exitosamente",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Carga_NoDefinido_General",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Carga_NoDefinido_General_Error",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "SP_DWH_Carga_NoDefinido_General",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Carga No Definido DIM General",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Fallido",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Carga_NoDefinido_General",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

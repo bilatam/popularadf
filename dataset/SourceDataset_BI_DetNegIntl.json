@@ -1,0 +1,30 @@
+{
+	"name": "SourceDataset_BI_DetNegIntl",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "DNI_PK_ID",
+				"type": "bigint"
+			},
+			{
+				"name": "DNI_Descripcion",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DNI_FK_ID_TEXT",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_DetNegIntl"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

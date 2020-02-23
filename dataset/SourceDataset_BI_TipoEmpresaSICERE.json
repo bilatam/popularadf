@@ -1,0 +1,54 @@
+{
+	"name": "SourceDataset_BI_TipoEmpresaSICERE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Tes_pk_identificador",
+				"type": "bigint"
+			},
+			{
+				"name": "Tes_FechaSICERE",
+				"type": "date"
+			},
+			{
+				"name": "Tes_CedulaJuridica",
+				"type": "varchar"
+			},
+			{
+				"name": "Tes_NombreEmpresa",
+				"type": "varchar"
+			},
+			{
+				"name": "Tes_CantEmpleados",
+				"type": "decimal"
+			},
+			{
+				"name": "Tes_TipoEmpresa",
+				"type": "varchar"
+			},
+			{
+				"name": "Tes_Sector",
+				"type": "varchar"
+			},
+			{
+				"name": "Tes_SectorEmp",
+				"type": "varchar"
+			},
+			{
+				"name": "Tes_RazonSocial",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_TipoEmpresaSICERE"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,26 @@
+{
+	"name": "SourceDataset_BI_FinalidadDelProducto",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "FDP_PK_Id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FDP_Descripcion",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_FinalidadDelProducto"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

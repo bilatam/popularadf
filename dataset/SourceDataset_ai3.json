@@ -1,0 +1,78 @@
+{
+	"name": "SourceDataset_ai3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Cartera/mes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CodCartera",
+				"type": "float"
+			},
+			{
+				"name": "enero",
+				"type": "float"
+			},
+			{
+				"name": "febrero",
+				"type": "float"
+			},
+			{
+				"name": "marzo",
+				"type": "float"
+			},
+			{
+				"name": "abril",
+				"type": "float"
+			},
+			{
+				"name": "mayo",
+				"type": "float"
+			},
+			{
+				"name": "junio",
+				"type": "float"
+			},
+			{
+				"name": "julio",
+				"type": "float"
+			},
+			{
+				"name": "agosto",
+				"type": "float"
+			},
+			{
+				"name": "septiembre",
+				"type": "float"
+			},
+			{
+				"name": "octubre",
+				"type": "float"
+			},
+			{
+				"name": "noviembre",
+				"type": "float"
+			},
+			{
+				"name": "diciembre",
+				"type": "float"
+			},
+			{
+				"name": "año",
+				"type": "float"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_Estacionalidad_creditos"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

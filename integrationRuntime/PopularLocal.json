@@ -1,0 +1,6 @@
+{
+	"name": "PopularLocal",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

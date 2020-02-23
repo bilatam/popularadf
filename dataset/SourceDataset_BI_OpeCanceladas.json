@@ -1,0 +1,86 @@
+{
+	"name": "SourceDataset_BI_OpeCanceladas",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Opc_Pk_Id",
+				"type": "bigint"
+			},
+			{
+				"name": "Opc_Operacion",
+				"type": "varchar"
+			},
+			{
+				"name": "Opc_IdCliente",
+				"type": "bigint"
+			},
+			{
+				"name": "Opc_CodBanca",
+				"type": "smallint"
+			},
+			{
+				"name": "Opc_CodLinea",
+				"type": "int"
+			},
+			{
+				"name": "Opc_CodAgencia",
+				"type": "int"
+			},
+			{
+				"name": "Opc_Principal",
+				"type": "decimal"
+			},
+			{
+				"name": "Opc_Saldo",
+				"type": "decimal"
+			},
+			{
+				"name": "Opc_CuotasPend",
+				"type": "int"
+			},
+			{
+				"name": "Opc_FechaVencimiento",
+				"type": "date"
+			},
+			{
+				"name": "Opc_Plazo",
+				"type": "int"
+			},
+			{
+				"name": "Opc_RangoCanc",
+				"type": "int"
+			},
+			{
+				"name": "Opc_Tipo",
+				"type": "int"
+			},
+			{
+				"name": "Opc_Estado",
+				"type": "varchar"
+			},
+			{
+				"name": "Opc_FechaAplicacion",
+				"type": "date"
+			},
+			{
+				"name": "Opc_FechaCarga",
+				"type": "date"
+			},
+			{
+				"name": "Opc_SaldoBCO",
+				"type": "decimal"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_OpeCanceladas"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

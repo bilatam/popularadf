@@ -1,0 +1,22 @@
+{
+	"name": "Transformacion_NodefinidoCredito",
+	"properties": {
+		"activities": [
+			{
+				"name": "SP_DWH_Carga_No_Definido",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "SP_DWH_Carga_No_Definido",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

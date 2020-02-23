@@ -1,0 +1,30 @@
+{
+	"name": "SourceDataset_BI_GeneradorMonedaExt",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "GME_PK_Id",
+				"type": "bigint"
+			},
+			{
+				"name": "GME_Descripcion",
+				"type": "nvarchar"
+			},
+			{
+				"name": "GME_FK_ID_TEXT",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_GeneradorMonedaExt"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

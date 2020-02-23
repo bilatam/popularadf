@@ -1,0 +1,34 @@
+{
+	"name": "SourceDataset_BI_CatPostRestrict",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Prt_pk_Id",
+				"type": "int"
+			},
+			{
+				"name": "Prt_Descripcion",
+				"type": "varchar"
+			},
+			{
+				"name": "Prt_Tipo Descripcion",
+				"type": "varchar"
+			},
+			{
+				"name": "Prt_TablaT24",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_CatPostRestrict"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

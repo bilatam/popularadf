@@ -1,0 +1,26 @@
+{
+	"name": "SourceDataset_BI_TipoResumen",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Tir_PK_CodResumen",
+				"type": "tinyint"
+			},
+			{
+				"name": "Tir_Descripcion",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_TipoResumen"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

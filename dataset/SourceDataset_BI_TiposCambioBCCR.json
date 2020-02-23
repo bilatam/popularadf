@@ -1,0 +1,42 @@
+{
+	"name": "SourceDataset_BI_TiposCambioBCCR",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Tcb_Id",
+				"type": "bigint"
+			},
+			{
+				"name": "Tcb_CompraBCCR",
+				"type": "decimal"
+			},
+			{
+				"name": "Tcb_VentaBCCR",
+				"type": "decimal"
+			},
+			{
+				"name": "Tcb_FechaBCCR",
+				"type": "date"
+			},
+			{
+				"name": "Tcb_CompraT24",
+				"type": "decimal"
+			},
+			{
+				"name": "Tcb_VentaT24",
+				"type": "decimal"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_TiposCambioBCCR"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

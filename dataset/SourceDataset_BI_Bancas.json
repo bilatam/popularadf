@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_BI_Bancas",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_Bancas"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,42 @@
+{
+	"name": "SourceDataset_BI_TipoDocumentoCliente",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "TDC_PK_ID",
+				"type": "bigint"
+			},
+			{
+				"name": "TDC_Descripcion",
+				"type": "varchar"
+			},
+			{
+				"name": "TDC_DesGeneral",
+				"type": "varchar"
+			},
+			{
+				"name": "TDC_CodigoSUGEF",
+				"type": "int"
+			},
+			{
+				"name": "TDC_CodHacienda",
+				"type": "varchar"
+			},
+			{
+				"name": "TDC_DesHacienda",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_TipoDocumentoCliente"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
