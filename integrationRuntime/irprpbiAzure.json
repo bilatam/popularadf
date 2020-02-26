@@ -1,0 +1,6 @@
+{
+	"name": "irprpbiAzure",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

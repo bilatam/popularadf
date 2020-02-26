@@ -1,0 +1,12 @@
+{
+	"name": "lsprpbidw",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDW",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=prazusql001.database.windows.net;initial catalog=dwprpbi;user id=Azureadmin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRGUFJQQklfMmUyZWU4ZTgtNmRmYi00YzdlLTk3ZWItODY1ZWFhZDIzOGVmIg0KfQ=="
+		}
+	}
+}

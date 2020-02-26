@@ -1,0 +1,7 @@
+{
+	"name": "irprpbi",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "Gateway entre On Premise y Cloud"
+	}
+}

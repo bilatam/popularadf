@@ -1,0 +1,21 @@
+{
+	"name": "DestinationDataset_3g4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lsprpbidl",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureDataLakeStoreLocation",
+				"fileName": "BI_OperacionesHist",
+				"folderPath": "SISBI"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
