@@ -73,6 +73,19 @@
 					},
 					"waitOnCompletion": true
 				}
+			},
+			{
+				"name": "Carga_DIM_Fecha",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "SP_DWH_Carga_DIM_Fecha",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"annotations": []

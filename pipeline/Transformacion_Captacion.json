@@ -609,7 +609,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "Extrae_Captacion",
+						"referenceName": "Extraer_Captacion",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true

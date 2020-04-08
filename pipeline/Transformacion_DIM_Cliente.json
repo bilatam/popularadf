@@ -5,14 +5,459 @@
 			{
 				"name": "SP_DWH_Carga_DIM_Cliente",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Ini_Bitacora_Transformacion_DIM_Cliente",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
 						"referenceName": "SP_DWH_Carga_DIM_Cliente",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Ini_Bitacora_Transformacion_DIM_Cliente",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación DIM Cliente",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutándose",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "1",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Transformacion_DIM_Cliente",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "SP_DWH_Carga_DIM_Cliente",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación DIM Cliente",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutado Exitosamente",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Transformacion_DIM_Cliente_Error",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "SP_DWH_Carga_DIM_Cliente",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Transformación DIM Cliente",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Fallido",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Ini_Bitacora_Carga_NoDefinido_Cliente",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Fin_Bitacora_Carga_Dim_Vehiculo",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Carga No Definido DIM Cliente",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutándose",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "1",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "SP_DWH_Carga_NoDefinido_Cliente",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ini_Bitacora_Carga_NoDefinido_Cliente",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "SP_DWH_Carga_NoDefinido_Cliente",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Carga_NoDefinido_Cliente",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "SP_DWH_Carga_NoDefinido_Cliente",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Carga No Definido DIM Cliente",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutado Exitosamente",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Carga_NoDefinido_Cliente_Error",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "SP_DWH_Carga_NoDefinido_Cliente",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Carga No Definido DIM Cliente",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Fallido",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Ini_Bitacora_Carga_VehiculoCliente",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Fin_Bitacora_Transformacion_DIM_Cliente",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Carga DIM Vehiculo",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutándose",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "1",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "SP_DWH_Carga_DIM_Vehiculo",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ini_Bitacora_Carga_VehiculoCliente",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "SP_DWH_Carga_DIM_Vehiculo",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Carga_Dim_Vehiculo",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "SP_DWH_Carga_DIM_Vehiculo",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Carga Dim Vehiculo",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Ejecutado Exitosamente",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fin_Bitacora_Carga_DIM_Vehiculo_Error",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "SP_DWH_Carga_DIM_Vehiculo",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InformacionBitacora]",
+					"storedProcedureParameters": {
+						"Evento": {
+							"value": "Carga DIM Vehiculo",
+							"type": "String"
+						},
+						"Mensaje": {
+							"value": "Proceso Fallido",
+							"type": "String"
+						},
+						"Origen": {
+							"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+							"type": "String"
+						},
+						"TipoBitacora": {
+							"value": "2",
+							"type": "Int16"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DW_Popular",
+					"type": "LinkedServiceReference"
 				}
 			}
 		],

@@ -37,13 +37,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_gtu",
+						"referenceName": "SourceDataset_BI_Estacionalidad_creditos",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_gtu",
+						"referenceName": "DestinationDataset_BI_Estacionalidad_creditos",
 						"type": "DatasetReference"
 					}
 				]

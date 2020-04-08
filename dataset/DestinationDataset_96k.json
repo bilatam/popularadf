@@ -1,0 +1,21 @@
+{
+	"name": "DestinationDataset_96k",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DL_Popular",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureDataLakeStoreLocation",
+				"fileName": "BI_BMPrestaciones",
+				"folderPath": "SISBI"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

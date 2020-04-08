@@ -12,7 +12,7 @@
 						"referenceName": "CD_SISBI_BI_Agencias",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -25,7 +25,7 @@
 						"referenceName": "CD_SISBI_BI_PersonalBP",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -38,7 +38,7 @@
 						"referenceName": "CD_SISBI_BI_Regiones",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -51,7 +51,7 @@
 						"referenceName": "CD_SISBI_BI_TiposAgencia",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -64,7 +64,7 @@
 						"referenceName": "CD_SISBI_BI_Zonas",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -172,26 +172,52 @@
 				}
 			},
 			{
-				"name": "CD_SISBI_BI_PatronosSIC",
+				"name": "CD_SISBI_BI_PatronosSIPO",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "CD_SISBI_BI_PatronosSIC",
+						"referenceName": "CD_SISBI_BI_PatronosSIPO",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
 				}
 			},
 			{
-				"name": "CD_SISBI_BI_SaldosPorClientes",
+				"name": "CD_SISBI_BI_OperacionesDiarias",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "CD_SISBI_BI_SaldosPorClientes",
+						"referenceName": "CD_SISBI_BI_OperacionesDiarias",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "CD_SISBI_BI_PasivosSaldos",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "CD_SISBI_BI_PasivosSaldos",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "CD_SISBI_BI_Operaciones",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "CD_SISBI_BI_Operaciones",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true

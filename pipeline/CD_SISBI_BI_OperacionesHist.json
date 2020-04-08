@@ -37,13 +37,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_vv8",
+						"referenceName": "SourceDataset_BI_OperacionesHist1",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_vv8",
+						"referenceName": "DestinationDataset_BI_OperacionesHist",
 						"type": "DatasetReference"
 					}
 				]

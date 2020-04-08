@@ -9,7 +9,7 @@
 		"type": "SqlServerTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "Catalogo",
+			"schema": "Catalogos",
 			"table": "TPR_BCOSectEconBCCR"
 		}
 	},

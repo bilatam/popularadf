@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_96k",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_BMPrestaciones"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

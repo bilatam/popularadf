@@ -94,19 +94,6 @@
 				}
 			},
 			{
-				"name": "CD_SISBI_BI_PatronosSIPO",
-				"type": "ExecutePipeline",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"pipeline": {
-						"referenceName": "CD_SISBI_BI_PatronosSIPO",
-						"type": "PipelineReference"
-					},
-					"waitOnCompletion": false
-				}
-			},
-			{
 				"name": "CD_SISBI_BI_ProductoMeta",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
@@ -114,19 +101,6 @@
 				"typeProperties": {
 					"pipeline": {
 						"referenceName": "CD_SISBI_BI_ProductoMeta",
-						"type": "PipelineReference"
-					},
-					"waitOnCompletion": false
-				}
-			},
-			{
-				"name": "CD_SISBI_BI_Productos",
-				"type": "ExecutePipeline",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"pipeline": {
-						"referenceName": "CD_SISBI_BI_Productos",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": false
@@ -159,19 +133,6 @@
 				}
 			},
 			{
-				"name": "CD_SISBI_BI_Sectores",
-				"type": "ExecutePipeline",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"pipeline": {
-						"referenceName": "CD_SISBI_BI_Sectores",
-						"type": "PipelineReference"
-					},
-					"waitOnCompletion": false
-				}
-			},
-			{
 				"name": "CD_SISBI_BI_TipoDeduccion",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
@@ -179,19 +140,6 @@
 				"typeProperties": {
 					"pipeline": {
 						"referenceName": "CD_SISBI_BI_TipoDeduccion",
-						"type": "PipelineReference"
-					},
-					"waitOnCompletion": false
-				}
-			},
-			{
-				"name": "CD_SISBI_BI_TipoEmpresaSICERE",
-				"type": "ExecutePipeline",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"pipeline": {
-						"referenceName": "CD_SISBI_BI_TipoEmpresaSICERE",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": false
@@ -234,19 +182,6 @@
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": false
-				}
-			},
-			{
-				"name": "CD_SISBI_BI_Operaciones",
-				"type": "ExecutePipeline",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"pipeline": {
-						"referenceName": "CD_SISBI_BI_Operaciones",
-						"type": "PipelineReference"
-					},
-					"waitOnCompletion": true
 				}
 			},
 			{

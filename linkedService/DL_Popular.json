@@ -5,12 +5,10 @@
 		"annotations": [],
 		"type": "AzureDataLakeStore",
 		"typeProperties": {
-			"dataLakeStoreUri": "https://dlprpbi.azuredatalakestore.net/webhdfs/v1",
-			"servicePrincipalId": "3aa06b0a-ce0c-49b7-83cb-4bf53709eaa1",
-			"tenant": "6e852f85-8b27-4c6b-8ee2-181db2a7f482",
-			"subscriptionId": "3d2e514c-f131-45e2-822a-e81c79d51b94",
-			"resourceGroupName": "ProyectoBIRG",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRGUFJQQklfZDdjYTZiODEtOTA0My00NzczLTk2MDktMGFkNjBjM2Y5ZjMzIg0KfQ=="
+			"dataLakeStoreUri": "https://serdldev.azuredatalakestore.net/webhdfs/v1",
+			"tenant": "2d4feb35-6363-4b6c-94e0-a60d04fa4f02",
+			"subscriptionId": "51eba0b9-05dd-461f-828f-5eae2263a095",
+			"resourceGroupName": "ProyectoBIRG"
 		}
 	}
 }

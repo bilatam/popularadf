@@ -341,19 +341,6 @@
 				}
 			},
 			{
-				"name": "CD_SISBI_BI_PatronosSIC",
-				"type": "ExecutePipeline",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"pipeline": {
-						"referenceName": "CD_SISBI_BI_PatronosSIC",
-						"type": "PipelineReference"
-					},
-					"waitOnCompletion": true
-				}
-			},
-			{
 				"name": "CD_SISBI_BI_PoliticaCli",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
@@ -413,6 +400,45 @@
 				"typeProperties": {
 					"pipeline": {
 						"referenceName": "CD_SISBI_BI_TotalSaldCliGen",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "CD_SISBI_BI_ClientInsti",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "CD_SISBI_BI_ClientInsti",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "CD_SISBI_BI_Nacimientos",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "CD_SISBI_BI_Nacimientos",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "CD_SISBI_BI_SaldosPorClientes",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "CD_SISBI_BI_SaldosPorClientes",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true

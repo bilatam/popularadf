@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_BI_TarjetasDebito",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_TarjetasDebito"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

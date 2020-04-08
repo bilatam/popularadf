@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_jzx",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Pas",
+			"table": "BI_EstadosClientesPAS"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
