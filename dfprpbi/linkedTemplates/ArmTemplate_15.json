@@ -1,0 +1,939 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "dfprpbi"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_PersonalBP')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_PersonalBP"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_PoliticaCli')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Plt_PK_Identificacion",
+						"type": "bigint"
+					},
+					{
+						"name": "Plt_FechaDatos",
+						"type": "date"
+					},
+					{
+						"name": "Plt_FK_IdCliente",
+						"type": "decimal"
+					},
+					{
+						"name": "Plt_PeriodicidadIngre",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_MontoEstimadoIngre",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_IngresosMillones",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_PeriodicidadEgre",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_MontoEstEgre",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_Egresosmillones",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_PromedioSalario",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_RelacionesPEP",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_PrimerApellido",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_SegundoApellido",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_Nombre",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_Cedula",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_Relacion",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_Puesto",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_Pignoracion",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_OrigenBienes",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_OtroOrigenBienes",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_DetalleBienes",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_PrimerApellidoBene",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_SegundoApellidoBene",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_NombreBeneficiario",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_TipoDocuBene",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_CedulaBene",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_RelacionBene",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_DetalleBene",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_PorcentajeBene",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_PriApeAccionista",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_SegApeAccionista",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_NombreAccionista",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_CedulaAccionista",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_PorcentajeAccionista",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_EsFuePEP",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_OrigenPEPAccio",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_ClienteJuridico",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_RepresentanteLegal",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_EsPEP",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_OrigenPepRepLegal",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_AgenteResidente",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_PrimerApeAgent",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_SegApeAgent",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_NombreAgent",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_NacionalidadAgent",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_TipoDocAgente",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_CedulaAgente",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_PaisResidenAgent",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_UbicacionAgent",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_PuntoReferenciaAgent",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_ApartadoPostal",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_TelefonoAgente",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_FaxAgente",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_CorreoAgente",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_FecNaciAgente",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_Producto",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_ProductoEspecial",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_CondicionProduc",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_FinalidadProduc",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_OtraFinalidadProduc",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_FondosMovilizar",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_FuenteFondos",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_NaturalezaNeg",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_VerificInfo",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_MenorEdad",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_GeneraMonExte",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_ClasifGroup",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_CategRiesgoActual",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_CategRiesgoPasada",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_TipInterCliente",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_ClientePEP",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_OrigenPEP",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_NivelEstrucProp",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_ActualizaPCSC",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_VencePCSC",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_RiesgoLCBP",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_ReferenciaLocal",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_EstadoRegistro",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_CantModif",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_Ingresador",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_FecUltModificacion",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_Autorizador",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_Oficina",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_CodigoDepto",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_CodigoAuditor",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_FecAuditoria",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_CapacidaPago",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_HistNormativa",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_CliTribOtroPaís",
+						"type": "varchar"
+					},
+					{
+						"name": "Plt_NumTin",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptl_PaisResFiscal",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptl_RazonesNoTin",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptl_CotizaBolsa",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptl_NomMercadoVal",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptl_NacAccionista",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_PoliticaCli"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_ProductoMeta')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_ProductoMeta"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Productos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_Productos"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_ProvCantDistrito')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_ProvCantDistrito"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_RANGOS_TRANSACCIONALES')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "RT_PK_Id",
+						"type": "varchar"
+					},
+					{
+						"name": "RT_Descripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "RT_TIPO_CLIENTE",
+						"type": "varchar"
+					},
+					{
+						"name": "RT_FK_ID",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_RANGOS_TRANSACCIONALES"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Rangos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Ran_PK_CodRango",
+						"type": "smallint"
+					},
+					{
+						"name": "Ran_InicioRango",
+						"type": "varchar"
+					},
+					{
+						"name": "Ran_FinRango",
+						"type": "varchar"
+					},
+					{
+						"name": "Ran_Descripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "Ran_TipoRango",
+						"type": "smallint"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_Rangos"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Regiones')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Reg_PK_CodRegion",
+						"type": "smallint"
+					},
+					{
+						"name": "Reg_DescripcionRegion",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_Regiones"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Responsables')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_Responsables"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_ResuSICERE')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "Sicere",
+					"table": "BI_ResuSICERE"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_ResumenClientesPas')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Rcp_PK_IdClienteT24",
+						"type": "decimal"
+					},
+					{
+						"name": "Rcp_PK_FechaDatos",
+						"type": "date"
+					},
+					{
+						"name": "Rcp_PatronoSalarioM",
+						"type": "varchar"
+					},
+					{
+						"name": "Rcp_UltimaFechaPago",
+						"type": "datetime"
+					},
+					{
+						"name": "Rcp_FechaInicioPas",
+						"type": "datetime"
+					},
+					{
+						"name": "Rcp_CantidadPatronos",
+						"type": "int"
+					},
+					{
+						"name": "Rcp_CantidadPagos",
+						"type": "int"
+					},
+					{
+						"name": "Rcp_Oficina",
+						"type": "int"
+					},
+					{
+						"name": "Rcp_Canal",
+						"type": "varchar"
+					},
+					{
+						"name": "Rcp_MontoPagos",
+						"type": "decimal"
+					},
+					{
+						"name": "Rcp_UltFecPagoAnterior",
+						"type": "datetime"
+					},
+					{
+						"name": "Rcp_Sector",
+						"type": "varchar"
+					},
+					{
+						"name": "Rcp_SectorEmp",
+						"type": "varchar"
+					},
+					{
+						"name": "Rcp_RazonSocial",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "Pas",
+					"table": "BI_ResumenClientesPas"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_SaldosPorClientes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Spc_IdSaldo",
+						"type": "bigint"
+					},
+					{
+						"name": "Spc_FK_IdCliente",
+						"type": "bigint"
+					},
+					{
+						"name": "Spc_CantidadProduct",
+						"type": "int"
+					},
+					{
+						"name": "Spc_MontoSaldo",
+						"type": "decimal"
+					},
+					{
+						"name": "Spc_Moneda",
+						"type": "varchar"
+					},
+					{
+						"name": "Spc_CodProducto",
+						"type": "int"
+					},
+					{
+						"name": "Spc_Producto",
+						"type": "varchar"
+					},
+					{
+						"name": "Spc_FechaActualizacion",
+						"type": "date"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_SaldosPorClientes"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Sectores')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_Sectores"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_SegmentaClientes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_SegmentaClientes"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_SegmentoBancaCliente')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_SegmentoBancaCliente"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_SolicitudesCred')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_SolicitudesCred"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_StandingOrder')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_StandingOrder"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_TarjetasDebito')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_TarjetasDebito"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_TipoDeduccion')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_TipoDeduccion"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_TipoDocumentoCliente')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "TDC_PK_ID",
+						"type": "bigint"
+					},
+					{
+						"name": "TDC_Descripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_DesGeneral",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_CodigoSUGEF",
+						"type": "int"
+					},
+					{
+						"name": "TDC_CodHacienda",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_DesHacienda",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_TipoDocumentoCliente"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

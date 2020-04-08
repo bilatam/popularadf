@@ -1,0 +1,2509 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "dfprpbi"
+		},
+		"SISBI_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SISBI'"
+		},
+		"SISBI_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SISBI'"
+		},
+		"lsprpbidl_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'lsprpbidl'"
+		},
+		"lsprpbiop_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsprpbiop'"
+		},
+		"lsprpbiop_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'lsprpbiop'"
+		},
+		"SISBI_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "bpdcnet\\APB_Connect_To_PBI"
+		},
+		"lsprpbidl_properties_typeProperties_dataLakeStoreUri": {
+			"type": "string",
+			"defaultValue": "https://dlprpbi.azuredatalakestore.net/webhdfs/v1"
+		},
+		"lsprpbidl_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "3aa06b0a-ce0c-49b7-83cb-4bf53709eaa1"
+		},
+		"lsprpbidl_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "6e852f85-8b27-4c6b-8ee2-181db2a7f482"
+		},
+		"lsprpbidl_properties_typeProperties_subscriptionId": {
+			"type": "string",
+			"defaultValue": "3d2e514c-f131-45e2-822a-e81c79d51b94"
+		},
+		"lsprpbidl_properties_typeProperties_resourceGroupName": {
+			"type": "string",
+			"defaultValue": "RG-PR-PBI-InteligenciaNegocios"
+		},
+		"lsprpbiop_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "bpdcnet\\APB_Connect_To_PBI"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination_BI_SolicitudesCred')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "DL_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureDataLakeStoreLocation",
+						"fileName": "BI_SolicitudesCred",
+						"folderPath": "SISBI"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination_BI_TIpoEmpresaSICERE')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "DL_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureDataLakeStoreLocation",
+						"fileName": "BI_TipoEmpresaSICERE",
+						"folderPath": "SISBI"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination_BI_TipoDocumentoCliente')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "DL_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureDataLakeStoreLocation",
+						"fileName": "BI_TipoDocumentoCliente",
+						"folderPath": "SISBI"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination_BI_TipoResumen')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "DL_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureDataLakeStoreLocation",
+						"fileName": "BI_TipoResumen",
+						"folderPath": "SISBI"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination_BI_TiposCambioBCCR')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "DL_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureDataLakeStoreLocation",
+						"fileName": "BI_TiposCambioBCCR",
+						"folderPath": "SISBI"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination_BI_TiposDestinos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "DL_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureDataLakeStoreLocation",
+						"fileName": "BI_TiposDestinos",
+						"folderPath": "SISBI"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination_BI_TiposGarantia')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "DL_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureDataLakeStoreLocation",
+						"fileName": "BI_TiposGarantia",
+						"folderPath": "SISBI"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination_BI_Zonas')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "DL_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureDataLakeStoreLocation",
+						"fileName": "BI_Zonas",
+						"folderPath": "SISBI"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination_TiposAgencia')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "DL_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureDataLakeStoreLocation",
+						"fileName": "BI_TiposAgencia",
+						"folderPath": "SISBI"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SISBI')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"connectionString": "[parameters('SISBI_connectionString')]",
+					"userName": "[parameters('SISBI_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('SISBI_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "irprpbi",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/lsprpbidl')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDataLakeStore",
+				"typeProperties": {
+					"dataLakeStoreUri": "[parameters('lsprpbidl_properties_typeProperties_dataLakeStoreUri')]",
+					"servicePrincipalId": "[parameters('lsprpbidl_properties_typeProperties_servicePrincipalId')]",
+					"servicePrincipalKey": {
+						"type": "SecureString",
+						"value": "[parameters('lsprpbidl_servicePrincipalKey')]"
+					},
+					"tenant": "[parameters('lsprpbidl_properties_typeProperties_tenant')]",
+					"subscriptionId": "[parameters('lsprpbidl_properties_typeProperties_subscriptionId')]",
+					"resourceGroupName": "[parameters('lsprpbidl_properties_typeProperties_resourceGroupName')]"
+				},
+				"connectVia": {
+					"referenceName": "irprpbi",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/lsprpbiop')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"connectionString": "[parameters('lsprpbiop_connectionString')]",
+					"userName": "[parameters('lsprpbiop_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('lsprpbiop_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "irprpbi",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SP_DWH_Elimina_Stage')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "SP_DWH_Elimina_Stage_General",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Ini_Bitacora_Elimina_Stage",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Elimina_Stage_General",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Elimina_Stage_Cliente",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Elimina_Stage_General",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Elimina_Stage_Cliente",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Elimina_Stage_Credito",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Elimina_Stage_Cliente",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Elimina_Stage_Credito",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Elimina_Stage_Captacion",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Elimina_Stage_Credito",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Elimina_Stage_Captacion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Ini_Bitacora_Elimina_Stage",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Elimina Tablas del Stage",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutándose",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Elimina_Stage",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "1",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Elimina_Stage",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Elimina_Stage_Captacion",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Elimina Tablas del Stage",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Finalizado Exitosamente",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Elimina_Stage",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Elimina_Stage_Error",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Elimina_Stage_Captacion",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Elimina Tablas del Stage",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Fallido",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Elimina_Stage",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SP_DWH_Extraer_Principal')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Ini_Bitacora_Gener",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Stage Tablas Generales",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutándose",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "1",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Gener",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Extraer_General",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Stage Tablas Generales",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Finalizado Exitosamente",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_General_Error",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Extraer_General",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Stage Tablas Generales",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Fallido",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Ini_Bitacora_Cliente",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Fin_Bitacora_Captacion",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Stage Tablas de Clientes",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutándose",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "1",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Cliente",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Extraer_Cliente",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Stage Tablas de Clientes",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Finalizado Exitosamente",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Cliente_Error",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Extraer_Cliente",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Stage Tablas de Clientes",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Fallido",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Credito",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Extraer_Credito",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Stage Tablas de Crédito",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Finalizado Exitosamente",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Credito_Error",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Extraer_Credito",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Stage Tablas de Crédito",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Fallido",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Ini_Bitacora_Captacion",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Fin_Bitacora_Credito",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Stage Tablas de Captación",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutándose",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "1",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Captacion",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Extraer_Captacion",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Stage Tablas de Captación",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Finalizado Exitosamente",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Captacion_Error",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Extraer_Captacion",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Stage Tablas de Captación",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Fallido",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "SP_DWH_Extraer_General",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Ini_Bitacora_Gener",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Extraer_General",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Extraer_Cliente",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Ini_Bitacora_Cliente",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Extraer_Cliente",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Ini_Bitacora_Credito",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Fin_Bitacora_Gener",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Stage Tablas de Crédito",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutándose",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - SP_DWH_Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "1",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "SP_DWH_Extraer_Credito",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Ini_Bitacora_Credito",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Extraer_Credito",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Extraer_Captacion",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Ini_Bitacora_Captacion",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Extraer_Captacion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Transformacion_DIM_Captacion')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "SP_DWH_DIM_CuentaContableCaptacion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_CuentaContableCaptacion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_DIM_CategoriaProducto",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_CategoriaProducto",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_BeneficiarioCaptacion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_BeneficiarioCaptacion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_CategoriaRestriccion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_CategoriaRestriccion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_FechaUltimaModificacion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaUltimaModificacion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_FechaUltimaAcreditacion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaUltimaAcreditacion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_FechaUltimaAcreditacionBanco",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaUltimaAcreditacionBanco",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_FechaAperturaProducto",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaAperturaProducto",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_FechaBloqueoFondo",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaBloqueoFondo",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_FechaEmisionProducto",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaEmisionProducto",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_FechaConstitucionCaptacion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaConstitucionCaptacion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_FechaVencimiento",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaVencimiento",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_FechaVencimientoFinal",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaVencimientoFinal",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_FechaCaptacion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaCaptacion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_Captacion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_Captacion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_FechaUltimoDebito",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaUltimoDebito",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Transformacion_DIM_Cliente')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "SP_DWH_Carga_DIM_Cliente",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Ini_Bitacora_Transformacion_DIM_Cliente",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_Cliente",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Ini_Bitacora_Transformacion_DIM_Cliente",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Transformación DIM Cliente",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutándose",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "1",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Transformacion_DIM_Cliente",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Carga_DIM_Cliente",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Transformación DIM Cliente",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutado Exitosamente",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Transformacion_DIM_Cliente_Error",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Carga_DIM_Cliente",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Transformación DIM Cliente",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Fallido",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Ini_Bitacora_Carga_NoDefinido_Cliente",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Fin_Bitacora_Carga_Dim_Vehiculo",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Carga No Definido DIM Cliente",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutándose",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "1",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_NoDefinido_Cliente",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Ini_Bitacora_Carga_NoDefinido_Cliente",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_NoDefinido_Cliente",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Carga_NoDefinido_Cliente",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Carga_NoDefinido_Cliente",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Carga No Definido DIM Cliente",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutado Exitosamente",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Carga_NoDefinido_Cliente_Error",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Carga_NoDefinido_Cliente",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Carga No Definido DIM Cliente",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Fallido",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Ini_Bitacora_Carga_VehiculoCliente",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Fin_Bitacora_Transformacion_DIM_Cliente",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Carga DIM Vehiculo",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutándose",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "1",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_Vehiculo",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Ini_Bitacora_Carga_VehiculoCliente",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_Vehiculo",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Carga_Dim_Vehiculo",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Carga_DIM_Vehiculo",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Carga Dim Vehiculo",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutado Exitosamente",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Carga_DIM_Vehiculo_Error",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Carga_DIM_Vehiculo",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Carga DIM Vehiculo",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Fallido",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - DWH - Transformacion_DIM_Cliente",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Transformacion_DIM_Credito')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Carga_DIM_Abogado",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_Abogado",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_ActividadEconomica",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_ActividadEconomica",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_AgenciaDesarrollo",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_AgenciaDesarrollo",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_CarteraRestringida",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_CarteraRestringida",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_Destino",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_Destino",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_EjecutivoDesarrollo",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_EjecutivoDesarrollo",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_EstatoAdministracion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_EstadoAdministracion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_EstadoCredito",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_EstadoCredito",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_FechaAvaluo",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaAvaluo",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_FechaConstitucionCredito",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaConstitucionCredito",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_FechaFormalizacion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaFormalizacion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_FechaOperacion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaOperacion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_FechaProximoPago",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaProximoPago",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_FechaRige",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaRige",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_UltimoMovimiento",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaUltimoMovimiento",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_FechaUltimoPago",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaUltimoPago",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_Linea",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_Linea",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_PatronoSIPO",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_PatronoSIPO",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_RangoAtraso",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_RangoAtraso",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_RangoCancelacion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_RangoCancelacion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_RangoMora",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_RangoMora",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_Responsable",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_Responsable",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_SectorEconomicoBCCR",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_SectorEconomicoBCCR",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_TipoDeduccion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_TipoDeduccion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_TipoGarantia",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_TipoGarantia",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_TipoResumen",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_TipoResumen",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_Banca",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_Banca",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "CARGA_DIMOperacion",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_Operacion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_Vendedor",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_Vendedor",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Transformacion_DIM_General')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Carga_DIM_Agencia",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_Agencia",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_Analista",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Carga_DIM_Agencia",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_Analista",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_EjecutivoBPGlobal",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_EjecutivoBPGlobal",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_Moneda",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_Moneda",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_PatronoSICERE",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_PatronoSICERE",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Carga_DIM_Fecha",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_Fecha",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Transformacion_DIM_SegmentaCliente')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "SP_DWH_Carga_DIM_SegmentaCliente",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Carga_DIM_FechaCIC",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_SegmentaCliente",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_FechaAutor",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaAutor",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "SP_DWH_Carga_DIM_FechaCIC",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "SP_DWH_Carga_DIM_FechaAutor",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_DIM_FechaCIC",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Transformacion_NodefinidoCredito')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "SP_DWH_Carga_No_Definido",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "SP_DWH_Carga_No_Definido",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": []
+		}
+	]
+}
