@@ -474,7 +474,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "SP_DWH_Carga_FACT_CreditoHistorico",
+						"referenceName": "Transformacion_FACT_CreditoHistorico",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true

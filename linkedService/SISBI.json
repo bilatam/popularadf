@@ -5,12 +5,12 @@
 		"annotations": [],
 		"type": "SqlServer",
 		"typeProperties": {
-			"connectionString": "integrated security=True;data source=vp9999-binsql01;initial catalog=SISBI",
-			"userName": "bpdcnet\\APB_Connect_To_PBI",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0Mjc4YjE3ZS03YTU5LTRmZDAtYmUwYi1kOWI0ZjkyOGMzYWQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"connectionString": "integrated security=True;data source=10.0.222.32;initial catalog=SISBI",
+			"userName": "ceoviedo@bpdcdes.com",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIzNmI5YzExZC01ZjNjLTRkOTctYWMzMC0xZjk5YWUzNjNmMTMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
-			"referenceName": "irprpbi",
+			"referenceName": "PopularLocal",
 			"type": "IntegrationRuntimeReference"
 		}
 	}

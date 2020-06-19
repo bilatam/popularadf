@@ -1,0 +1,30 @@
+{
+	"name": "SourceDataset_qa6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Cpn_CodPaisNaci",
+				"type": "varchar"
+			},
+			{
+				"name": "Cpn_PaisNaci",
+				"type": "varchar"
+			},
+			{
+				"name": "Cpn_SiglaPaisNaci",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "Catalogos",
+			"table": "BI_Paises"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

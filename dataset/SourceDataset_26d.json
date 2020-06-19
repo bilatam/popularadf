@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_26d",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Sicere",
+			"table": "BI_PeriodosSalariosSicere"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

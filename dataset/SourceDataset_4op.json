@@ -1,0 +1,30 @@
+{
+	"name": "SourceDataset_4op",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "SCH_FechaCarga",
+				"type": "date"
+			},
+			{
+				"name": "SCH_IdT24",
+				"type": "decimal"
+			},
+			{
+				"name": "SCH_SectorCli",
+				"type": "decimal"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_SectorCliHist"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

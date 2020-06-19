@@ -12,7 +12,7 @@
 						"referenceName": "CD_SISBI_BI_AgenDesa",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -38,7 +38,7 @@
 						"referenceName": "CD_SISBI_BI_EjecutivosDesarro",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -51,7 +51,7 @@
 						"referenceName": "CD_SISBI_BI_EstadoAdmin",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -64,7 +64,7 @@
 						"referenceName": "CD_SISBI_BI_EstadoCredito",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -77,7 +77,7 @@
 						"referenceName": "CD_SISBI_BI_Lineas",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -90,7 +90,7 @@
 						"referenceName": "CD_SISBI_BI_MaestroOpe",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -103,7 +103,7 @@
 						"referenceName": "CD_SISBI_BI_ProductoMeta",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -116,7 +116,7 @@
 						"referenceName": "CD_SISBI_BI_Rangos",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -129,7 +129,7 @@
 						"referenceName": "CD_SISBI_BI_Responsables",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -142,7 +142,7 @@
 						"referenceName": "CD_SISBI_BI_TipoDeduccion",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -155,7 +155,7 @@
 						"referenceName": "CD_SISBI_BI_TipoResumen",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -168,7 +168,7 @@
 						"referenceName": "CD_SISBI_BI_TiposDestinos",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{
@@ -181,7 +181,7 @@
 						"referenceName": "CD_SISBI_BI_TiposGarantia",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": false
+					"waitOnCompletion": true
 				}
 			},
 			{

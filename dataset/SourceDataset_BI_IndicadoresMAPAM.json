@@ -1,0 +1,38 @@
+{
+	"name": "SourceDataset_BI_IndicadoresMAPAM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Mpm_pk_CodIndicador",
+				"type": "int"
+			},
+			{
+				"name": "Mpm_CategoriaInd",
+				"type": "varchar"
+			},
+			{
+				"name": "Mpm_DescripcionInd",
+				"type": "varchar"
+			},
+			{
+				"name": "Mpm_FechaActualiza",
+				"type": "date"
+			},
+			{
+				"name": "Mpm_EstadoInd",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_IndicadoresMAPAM"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
