@@ -1,0 +1,7 @@
+{
+	"name": "IRPRPBI",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "Integration Runtime PBI"
+	}
+}
