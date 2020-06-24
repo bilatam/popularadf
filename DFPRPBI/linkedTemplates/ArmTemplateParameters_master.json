@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "DFPRPBI"
+		},
+		"DL_Popular_servicePrincipalKey": {
+			"value": ""
+		},
+		"DW_Popular_connectionString": {
+			"value": ""
+		},
+		"DW_Popular_servicePrincipalKey": {
+			"value": ""
+		},
+		"SISBI_connectionString": {
+			"value": ""
+		},
+		"SISBI_password": {
+			"value": ""
+		},
+		"lsprpbiop_connectionString": {
+			"value": ""
+		},
+		"lsprpbiop_password": {
+			"value": ""
+		},
+		"DL_Popular_properties_typeProperties_dataLakeStoreUri": {
+			"value": "https://dlprpbi.azuredatalakestore.net/webhdfs/v1"
+		},
+		"DL_Popular_properties_typeProperties_servicePrincipalId": {
+			"value": "73f8f5d5-3c10-42c5-ac2c-25c1567761df"
+		},
+		"DL_Popular_properties_typeProperties_tenant": {
+			"value": "6e852f85-8b27-4c6b-8ee2-181db2a7f482"
+		},
+		"DL_Popular_properties_typeProperties_subscriptionId": {
+			"value": "3d2e514c-f131-45e2-822a-e81c79d51b94"
+		},
+		"DL_Popular_properties_typeProperties_resourceGroupName": {
+			"value": "RG-PR-PBI-DataServices"
+		},
+		"DW_Popular_properties_typeProperties_servicePrincipalId": {
+			"value": "82d16184-996c-4deb-8cc5-4d55c36cf225"
+		},
+		"DW_Popular_properties_typeProperties_tenant": {
+			"value": "2d4feb35-6363-4b6c-94e0-a60d04fa4f02"
+		},
+		"SISBI_properties_typeProperties_userName": {
+			"value": "bpdcnet\\APB_Connect_To_PBI"
+		},
+		"lsprpbiop_properties_typeProperties_userName": {
+			"value": "bpdcnet\\APB_Connect_To_PBI"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

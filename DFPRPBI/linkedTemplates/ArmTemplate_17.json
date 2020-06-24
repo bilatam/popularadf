@@ -1,0 +1,1035 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "DFPRPBI"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_TiposGarantia')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_TiposGarantia"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_TotalSaldCliGen')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Spc_FechaActualizacion",
+						"type": "date"
+					},
+					{
+						"name": "Spc_FK_IdCliente",
+						"type": "bigint"
+					},
+					{
+						"name": "Tot_CantCuenCorr",
+						"type": "int"
+					},
+					{
+						"name": "Tot_SaldCtasCorr",
+						"type": "decimal"
+					},
+					{
+						"name": "Tot_CantVoluntario",
+						"type": "int"
+					},
+					{
+						"name": "Tot_SaldVoluntario",
+						"type": "decimal"
+					},
+					{
+						"name": "Tot_CantProgra",
+						"type": "int"
+					},
+					{
+						"name": "Tot_SaldProgra",
+						"type": "decimal"
+					},
+					{
+						"name": "Tot_Cantplazo",
+						"type": "int"
+					},
+					{
+						"name": "Tot_SaldPlazo",
+						"type": "decimal"
+					},
+					{
+						"name": "Tot_CantCredFinan",
+						"type": "int"
+					},
+					{
+						"name": "Tot_SaldCredfiana",
+						"type": "decimal"
+					},
+					{
+						"name": "Tot_CantCredDesa",
+						"type": "int"
+					},
+					{
+						"name": "Tot_SaldCredDesa",
+						"type": "decimal"
+					},
+					{
+						"name": "Tot_CantCredSoci",
+						"type": "int"
+					},
+					{
+						"name": "Tot_SaldCredSoci",
+						"type": "decimal"
+					},
+					{
+						"name": "Tot_CantVisa",
+						"type": "int"
+					},
+					{
+						"name": "Tot_SaldCredVisa",
+						"type": "decimal"
+					},
+					{
+						"name": "Tot_CantGaraHipot",
+						"type": "int"
+					},
+					{
+						"name": "Tot_SaldCredGaranHipotec",
+						"type": "decimal"
+					},
+					{
+						"name": "Tot_CantCredPerHipo",
+						"type": "int"
+					},
+					{
+						"name": "Tot_SaldCredPersoHipo",
+						"type": "decimal"
+					},
+					{
+						"name": "Tot_CantCredVivi",
+						"type": "int"
+					},
+					{
+						"name": "Tot_SaldCredVivi",
+						"type": "decimal"
+					},
+					{
+						"name": "Tot_CantNaranja",
+						"type": "int"
+					},
+					{
+						"name": "Tot_SaldNaranja",
+						"type": "decimal"
+					},
+					{
+						"name": "T_tarjeDebito",
+						"type": "nchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_TotalSaldCliGen"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Zonas')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_Zonas"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_MaestroOpe')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Mvd_PK_NumOperacion",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_PK_IdCliente",
+						"type": "bigint"
+					},
+					{
+						"name": "Mvd_FK_CodLinea",
+						"type": "int"
+					},
+					{
+						"name": "Mvd_FK_CodAgencia",
+						"type": "int"
+					},
+					{
+						"name": "Mvd_MontoPrincipal",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Opr_MontoSaldo",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_SaldoEmi",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_PolVid",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_PolInc",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_PolGan",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_PolVeh",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Comision",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Otro01",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Otro02",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Cuota",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Exceso",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_AhoCP",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_AhoRR",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_AhoAC",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_AhPrev",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_AcPrev",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Int180",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Int181",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_MonRem",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_MonVen",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_FechaCReal",
+						"type": "date"
+					},
+					{
+						"name": "Mvd_FechaConstitucion",
+						"type": "date"
+					},
+					{
+						"name": "Mvd_FechaUltPago",
+						"type": "date"
+					},
+					{
+						"name": "Mvd_FechaUltTr",
+						"type": "date"
+					},
+					{
+						"name": "Mvd_FechaUltMov",
+						"type": "date"
+					},
+					{
+						"name": "Mvd_FechaUltTa",
+						"type": "date"
+					},
+					{
+						"name": "Mvd_FechaUltTav",
+						"type": "date"
+					},
+					{
+						"name": "Mvd_FechaCreMa",
+						"type": "date"
+					},
+					{
+						"name": "Mvd_FechaVent",
+						"type": "date"
+					},
+					{
+						"name": "Mvd_TasaR",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Tasa",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Ponder",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Alfa",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Plazo",
+						"type": "int"
+					},
+					{
+						"name": "Mvd_CuotasPag",
+						"type": "int"
+					},
+					{
+						"name": "Mvd_FrePag",
+						"type": "int"
+					},
+					{
+						"name": "Mvd_AtraPe",
+						"type": "int"
+					},
+					{
+						"name": "Mvd_MesesGracia",
+						"type": "int"
+					},
+					{
+						"name": "Mvd_SeguiM",
+						"type": "int"
+					},
+					{
+						"name": "Mvd_Suspen",
+						"type": "int"
+					},
+					{
+						"name": "Mvd_CdActi",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_CodDestino",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_NumRem",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_PreVis",
+						"type": "int"
+					},
+					{
+						"name": "Mvd_Celula",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_Codigo",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_NoCode",
+						"type": "int"
+					},
+					{
+						"name": "Mvd_2DOAVI",
+						"type": "int"
+					},
+					{
+						"name": "Mvd_TipGar",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_NumerR",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Banda",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Formato",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_ImpAvi",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_AvisEmi",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_EstinD",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_TipPag",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_Estado",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_TipoTasa",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_SusRem",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_EstadoPig",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_Banvhi",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_Partid",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_Baja",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_Ventan",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_CapacidadPago",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_HistSUG",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_HistBCO",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_GeneradorDivisas",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_CRspec",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_ReClas",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_EstadoAnt",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_Rollo",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Fefilm",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Atraso",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_CuotaAtraso",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_Criter",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_CategoriaRiesgo",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_360Dias",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_MONEDA",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_CANCELA",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_TipoCuota",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_Filler",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_NOFIAD",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_LAG1",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_LAG2",
+						"type": "varchar"
+					},
+					{
+						"name": "Mvd_E2ANT",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_TPLUS",
+						"type": "decimal"
+					},
+					{
+						"name": "Mvd_FCarga",
+						"type": "date"
+					},
+					{
+						"name": "Mvd_Cedula",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_MaestroOpe"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_PatronosSIC')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Ptr_Id",
+						"type": "bigint"
+					},
+					{
+						"name": "Ptr_PK_Cedula",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptr_NumPatrono",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptr_Nombre",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptr_Direccion",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptr_Telefono",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptr_CodDistrito",
+						"type": "decimal"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_PatronosSIC"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_TPR_BCOSectEconBCCR')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "Catalogos",
+					"table": "TPR_BCOSectEconBCCR"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_ai3')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Cartera/mes",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CodCartera",
+						"type": "float"
+					},
+					{
+						"name": "enero",
+						"type": "float"
+					},
+					{
+						"name": "febrero",
+						"type": "float"
+					},
+					{
+						"name": "marzo",
+						"type": "float"
+					},
+					{
+						"name": "abril",
+						"type": "float"
+					},
+					{
+						"name": "mayo",
+						"type": "float"
+					},
+					{
+						"name": "junio",
+						"type": "float"
+					},
+					{
+						"name": "julio",
+						"type": "float"
+					},
+					{
+						"name": "agosto",
+						"type": "float"
+					},
+					{
+						"name": "septiembre",
+						"type": "float"
+					},
+					{
+						"name": "octubre",
+						"type": "float"
+					},
+					{
+						"name": "noviembre",
+						"type": "float"
+					},
+					{
+						"name": "diciembre",
+						"type": "float"
+					},
+					{
+						"name": "año",
+						"type": "float"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_Estacionalidad_creditos"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_bpf')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_SegmentaClientesCierre"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_bqr')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_ClientHisto"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_cpr')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_TarjetasCredito"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_f89')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_SegmentaClientesCierreHist"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_gm4')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_Estacionalidad_creditos"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_gtu')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_Estacionalidad_creditos"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_i5o')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Ckc_Identificador",
+						"type": "decimal"
+					},
+					{
+						"name": "Ckc_FechaDatos",
+						"type": "date"
+					},
+					{
+						"name": "Ckc_TipoDato",
+						"type": "varchar"
+					},
+					{
+						"name": "Ckc_Fk_IdPasivo",
+						"type": "varchar"
+					},
+					{
+						"name": "Ckc_NumDato",
+						"type": "decimal"
+					},
+					{
+						"name": "Ckc_Fk_CodAgencia",
+						"type": "int"
+					},
+					{
+						"name": "Ckc_FechaVenci",
+						"type": "date"
+					},
+					{
+						"name": "Ckc_Monto",
+						"type": "decimal"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_CkCupones"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_jzx')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "Pas",
+					"table": "BI_EstadosClientesPAS"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_o4q')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_BeneficiariosCuentas"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_qa6')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Cpn_CodPaisNaci",
+						"type": "varchar"
+					},
+					{
+						"name": "Cpn_PaisNaci",
+						"type": "varchar"
+					},
+					{
+						"name": "Cpn_SiglaPaisNaci",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "Catalogos",
+					"table": "BI_Paises"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_t27')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "Sicere",
+					"table": "BI_PeriodosSalariosSicere"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_vv8')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_OperacionesHist"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_xdr')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Tmd_Id",
+						"type": "bigint"
+					},
+					{
+						"name": "Tmd_PK_CodTipoMoneda",
+						"type": "int"
+					},
+					{
+						"name": "Tmd_TipoMoneda",
+						"type": "varchar"
+					},
+					{
+						"name": "Tmd_FechaCarga",
+						"type": "datetime"
+					}
+				],
+				"typeProperties": {
+					"schema": "Comun",
+					"table": "BI_TiposMonedas"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
