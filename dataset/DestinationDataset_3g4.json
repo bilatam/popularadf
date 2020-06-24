@@ -2,7 +2,7 @@
 	"name": "DestinationDataset_3g4",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "lsprpbidl",
+			"referenceName": "DL_Popular",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
