@@ -1,0 +1,37 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "DFPRPBI"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/DL_Popular')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDataLakeStore",
+				"typeProperties": {
+					"dataLakeStoreUri": "https://dlprpbi.azuredatalakestore.net/webhdfs/v1",
+					"servicePrincipalId": "73f8f5d5-3c10-42c5-ac2c-25c1567761df",
+					"servicePrincipalKey": {
+						"type": "SecureString",
+						"value": "**********"
+					},
+					"tenant": "6e852f85-8b27-4c6b-8ee2-181db2a7f482",
+					"subscriptionId": "3d2e514c-f131-45e2-822a-e81c79d51b94",
+					"resourceGroupName": "RG-PR-PBI-DataServices"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
