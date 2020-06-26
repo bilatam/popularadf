@@ -13,58 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_CkCupones')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Ckc_Identificador",
-						"type": "decimal"
-					},
-					{
-						"name": "Ckc_FechaDatos",
-						"type": "date"
-					},
-					{
-						"name": "Ckc_TipoDato",
-						"type": "varchar"
-					},
-					{
-						"name": "Ckc_Fk_IdPasivo",
-						"type": "varchar"
-					},
-					{
-						"name": "Ckc_NumDato",
-						"type": "decimal"
-					},
-					{
-						"name": "Ckc_Fk_CodAgencia",
-						"type": "int"
-					},
-					{
-						"name": "Ckc_FechaVenci",
-						"type": "date"
-					},
-					{
-						"name": "Ckc_Monto",
-						"type": "decimal"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_CkCupones"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_CliExcluidos')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -962,6 +910,25 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_EstadoCivil"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_EstadoCredito')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_EstadoCredito"
 				}
 			},
 			"dependsOn": []

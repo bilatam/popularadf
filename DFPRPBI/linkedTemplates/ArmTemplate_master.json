@@ -27,14 +27,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SISBI'"
 		},
-		"lsprpbiop_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsprpbiop'"
-		},
-		"lsprpbiop_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'lsprpbiop'"
-		},
 		"DL_Popular_properties_typeProperties_dataLakeStoreUri": {
 			"type": "string",
 			"defaultValue": "https://dlprpbi.azuredatalakestore.net/webhdfs/v1"
@@ -64,10 +56,6 @@
 			"defaultValue": "2d4feb35-6363-4b6c-94e0-a60d04fa4f02"
 		},
 		"SISBI_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "bpdcnet\\APB_Connect_To_PBI"
-		},
-		"lsprpbiop_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "bpdcnet\\APB_Connect_To_PBI"
 		},
@@ -352,17 +340,8 @@
 					"SISBI_password": {
 						"value": "[parameters('SISBI_password')]"
 					},
-					"lsprpbiop_connectionString": {
-						"value": "[parameters('lsprpbiop_connectionString')]"
-					},
-					"lsprpbiop_password": {
-						"value": "[parameters('lsprpbiop_password')]"
-					},
 					"SISBI_properties_typeProperties_userName": {
 						"value": "[parameters('SISBI_properties_typeProperties_userName')]"
-					},
-					"lsprpbiop_properties_typeProperties_userName": {
-						"value": "[parameters('lsprpbiop_properties_typeProperties_userName')]"
 					}
 				}
 			},

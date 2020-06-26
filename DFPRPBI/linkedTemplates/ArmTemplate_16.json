@@ -13,46 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Rangos')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Ran_PK_CodRango",
-						"type": "smallint"
-					},
-					{
-						"name": "Ran_InicioRango",
-						"type": "varchar"
-					},
-					{
-						"name": "Ran_FinRango",
-						"type": "varchar"
-					},
-					{
-						"name": "Ran_Descripcion",
-						"type": "varchar"
-					},
-					{
-						"name": "Ran_TipoRango",
-						"type": "smallint"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_Rangos"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Regiones')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -613,6 +573,25 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_TiposDestinos"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_TiposGarantia')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_TiposGarantia"
 				}
 			},
 			"dependsOn": []

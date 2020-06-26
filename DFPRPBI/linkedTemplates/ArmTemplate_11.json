@@ -15,19 +15,7 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SISBI'"
 		},
-		"lsprpbiop_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsprpbiop'"
-		},
-		"lsprpbiop_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'lsprpbiop'"
-		},
 		"SISBI_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "bpdcnet\\APB_Connect_To_PBI"
-		},
-		"lsprpbiop_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "bpdcnet\\APB_Connect_To_PBI"
 		}
@@ -72,28 +60,6 @@
 					"password": {
 						"type": "SecureString",
 						"value": "[parameters('SISBI_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "IRPRPBI",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsprpbiop')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"connectionString": "[parameters('lsprpbiop_connectionString')]",
-					"userName": "[parameters('lsprpbiop_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('lsprpbiop_password')]"
 					}
 				},
 				"connectVia": {
@@ -2341,7 +2307,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "lsprpbiop",
+					"referenceName": "SISBI",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -2353,7 +2319,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsprpbiop')]"
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
 			]
 		},
 		{
@@ -2578,6 +2544,27 @@
 				"typeProperties": {
 					"schema": "Sicere",
 					"table": "BI_PatronosSicere"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_96k')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_BMPrestaciones"
 				}
 			},
 			"dependsOn": [
