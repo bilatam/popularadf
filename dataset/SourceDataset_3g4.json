@@ -1,6 +1,10 @@
 {
 	"name": "SourceDataset_3g4",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": [],
