@@ -1,10 +1,6 @@
 {
 	"name": "SourceDataset_3g4",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "lsprpbiop",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": [],
