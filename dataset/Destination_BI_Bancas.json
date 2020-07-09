@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "BI_Bancas",
-				"folderPath": "SISBI"
+				"fileSystem": "SISBI"
 			},
 			"compressionCodec": "snappy"
 		},
