@@ -1,5 +1,5 @@
 {
-	"name": "Destination_BI_Bancas",
+	"name": "Parquet1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "DL_DEV",
@@ -10,12 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "BI_Bancas",
-				"folderPath": "SISBI"
+				"fileSystem": "sisbi"
 			},
 			"compressionCodec": "snappy"
 		},
 		"schema": []
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }

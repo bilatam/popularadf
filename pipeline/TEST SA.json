@@ -1,9 +1,9 @@
 {
-	"name": "CD_SISBI_BI_Bancas",
+	"name": "TEST SA",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_mfh",
+				"name": "Copy data1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -13,19 +13,11 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [
-					{
-						"name": "Source",
-						"value": "dbo.BI_Bancas"
-					},
-					{
-						"name": "Destination",
-						"value": "SISBI/BI_Bancas"
-					}
-				],
+				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "SqlServerSource"
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
 					},
 					"sink": {
 						"type": "ParquetSink",
@@ -33,23 +25,30 @@
 							"type": "AzureBlobFSWriteSettings"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_BI_Bancas",
+						"referenceName": "SqlServerTable1",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Destination_BI_Bancas",
+						"referenceName": "Parquet1",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
 		"annotations": []
-	},
-	"type": "Microsoft.DataFactory/factories/pipelines"
+	}
 }
