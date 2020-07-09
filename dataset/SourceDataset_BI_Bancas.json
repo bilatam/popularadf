@@ -2,7 +2,7 @@
 	"name": "SourceDataset_BI_Bancas",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SISBI",
+			"referenceName": "SISBI_DEV",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
