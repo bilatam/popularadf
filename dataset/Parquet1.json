@@ -1,6 +1,10 @@
 {
 	"name": "Parquet1",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SA_Popular",
+			"type": "LinkedServiceReference"
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
