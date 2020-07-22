@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_kv1",
+				"name": "BI_ActividadEconomicaCliente",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -30,7 +30,7 @@
 					"sink": {
 						"type": "ParquetSink",
 						"storeSettings": {
-							"type": "AzureDataLakeStoreWriteSettings"
+							"type": "AzureBlobFSWriteSettings"
 						}
 					},
 					"enableStaging": false
