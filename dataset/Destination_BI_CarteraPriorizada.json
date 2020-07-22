@@ -2,16 +2,15 @@
 	"name": "Destination_BI_CarteraPriorizada",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "DL_Popular",
+			"referenceName": "SA_Popular",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
-				"type": "AzureDataLakeStoreLocation",
-				"fileName": "BI_CarteraPriorizada",
-				"folderPath": "SISBI"
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "sisbi"
 			},
 			"compressionCodec": "snappy"
 		},

@@ -2,16 +2,15 @@
 	"name": "Destination_BI_DatosLocalesCli",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "DL_Popular",
+			"referenceName": "SA_Popular",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
-				"type": "AzureDataLakeStoreLocation",
-				"fileName": "BI_DatosLocalesCli",
-				"folderPath": "SISBI"
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "sisbi"
 			},
 			"compressionCodec": "snappy"
 		},

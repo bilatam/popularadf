@@ -1,10 +1,6 @@
 {
 	"name": "Parquet1",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "DL_DEV",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
