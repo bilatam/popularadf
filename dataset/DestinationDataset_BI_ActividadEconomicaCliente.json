@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "BI_ActividadEconomicaCliente",
 				"fileSystem": "SISBI"
 			},
 			"compressionCodec": "snappy"
