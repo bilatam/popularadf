@@ -2,16 +2,15 @@
 	"name": "DestinationDataset_BI_ESTADO_DEL_CLIENTE",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "DL_Popular",
+			"referenceName": "SA_Popular",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
-				"type": "AzureDataLakeStoreLocation",
-				"fileName": "BI_ESTADO_DEL_CLIENTE",
-				"folderPath": "SISBI"
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "sisbi"
 			},
 			"compressionCodec": "snappy"
 		},

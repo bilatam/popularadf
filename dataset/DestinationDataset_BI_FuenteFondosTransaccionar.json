@@ -2,16 +2,15 @@
 	"name": "DestinationDataset_BI_FuenteFondosTransaccionar",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "DL_Popular",
+			"referenceName": "SA_Popular",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
-				"type": "AzureDataLakeStoreLocation",
-				"fileName": "BI_FuenteFondosTransaccionar",
-				"folderPath": "SISBI"
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "sisbi"
 			},
 			"compressionCodec": "snappy"
 		},
