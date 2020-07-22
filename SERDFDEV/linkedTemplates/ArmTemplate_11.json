@@ -25,7 +25,7 @@
 		},
 		"SISBI_properties_typeProperties_userName": {
 			"type": "string",
-			"defaultValue": "bpdcnet\\APB_Connect_To_PBI"
+			"defaultValue": "BPDCdes\\ceoviedo"
 		},
 		"SISBI_DEV_properties_typeProperties_userName": {
 			"type": "string",
@@ -37,44 +37,20 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/Destination_BI_TiposGarantia')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "DL_Popular",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Parquet",
-				"typeProperties": {
-					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "BI_TiposGarantia",
-						"folderPath": "SISBI"
-					},
-					"compressionCodec": "snappy"
-				},
-				"schema": []
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/Destination_BI_Zonas')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "DL_Popular",
+					"referenceName": "SA_Popular",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "BI_Zonas",
-						"folderPath": "SISBI"
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -88,30 +64,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "DL_Popular",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Parquet",
-				"typeProperties": {
-					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "BI_TiposAgencia",
-						"folderPath": "SISBI"
-					},
-					"compressionCodec": "snappy"
-				},
-				"schema": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Parquet1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "DL_DEV",
+					"referenceName": "SA_Popular",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -143,7 +96,7 @@
 					}
 				},
 				"connectVia": {
-					"referenceName": "IRPRPBI",
+					"referenceName": "PopularLocal",
 					"type": "IntegrationRuntimeReference"
 				}
 			},
@@ -2566,6 +2519,65 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_SectorCliHist"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_5w0')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Prt_pk_Id",
+						"type": "int"
+					},
+					{
+						"name": "Prt_Descripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "Prt_Tipo Descripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "Prt_TablaT24",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_CatPostRestrict"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_665')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_PasivosSaldosHist"
 				}
 			},
 			"dependsOn": [

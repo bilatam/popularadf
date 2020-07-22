@@ -13,37 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/SP_DWH_Carga_No_Definido')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Carga_No_Definido",
-						"type": "SqlServerStoredProcedure",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"storedProcedureName": "[[dbo].[Carga_No_Definido]"
-						},
-						"linkedServiceName": {
-							"referenceName": "DW_Popular",
-							"type": "LinkedServiceReference"
-						}
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/SP_DWH_Elimina_Stage_Captacion')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -297,16 +266,15 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "DL_Popular",
+					"referenceName": "SA_Popular",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "BI_OperacionesDiarias",
-						"folderPath": "SISBI"
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -320,16 +288,15 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "DL_Popular",
+					"referenceName": "SA_Popular",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "BI_periodosSalariosSicere",
-						"folderPath": "SISBI"
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -343,16 +310,15 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "DL_Popular",
+					"referenceName": "SA_Popular",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "asgh",
-						"folderPath": "DEV"
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -366,16 +332,15 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "DL_Popular",
+					"referenceName": "SA_Popular",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "BI_OperacionesHist",
-						"folderPath": "SISBI"
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -389,16 +354,15 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "DL_Popular",
+					"referenceName": "SA_Popular",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "BI_BIDerechos",
-						"folderPath": "SISBI"
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -412,16 +376,15 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "DL_Popular",
+					"referenceName": "SA_Popular",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "BI_SectorCliHist",
-						"folderPath": "SISBI"
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -435,16 +398,15 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "DL_Popular",
+					"referenceName": "SA_Popular",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "BI_CatPostRestrict",
-						"folderPath": "SISBI"
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -458,16 +420,15 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "DL_Popular",
+					"referenceName": "SA_Popular",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "BI_PasivosSaldosHist",
-						"folderPath": "SISBI"
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -481,16 +442,15 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "DL_Popular",
+					"referenceName": "SA_Popular",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "BI_PatronosSicere",
-						"folderPath": "SISBI"
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -504,16 +464,15 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "DL_Popular",
+					"referenceName": "SA_Popular",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "BI_BMPrestaciones",
-						"folderPath": "SISBI"
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -527,16 +486,37 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "DL_Popular",
+					"referenceName": "SA_Popular",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "BI_Estacionalidad_creditos",
-						"folderPath": "SISBI"
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DestinationDataset_AfiCapAge')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SA_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
 				},

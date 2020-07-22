@@ -5,9 +5,6 @@
 		"factoryName": {
 			"value": "SERDFDEV"
 		},
-		"DL_DEV_accountKey": {
-			"value": ""
-		},
 		"DL_Popular_servicePrincipalKey": {
 			"value": ""
 		},
@@ -32,9 +29,6 @@
 		"SA_Popular_servicePrincipalKey": {
 			"value": ""
 		},
-		"DL_DEV_properties_typeProperties_url": {
-			"value": "https://sersadev.dfs.core.windows.net"
-		},
 		"DL_Popular_properties_typeProperties_dataLakeStoreUri": {
 			"value": "https://dlprpbi.azuredatalakestore.net/webhdfs/v1"
 		},
@@ -57,7 +51,7 @@
 			"value": "2d4feb35-6363-4b6c-94e0-a60d04fa4f02"
 		},
 		"SISBI_properties_typeProperties_userName": {
-			"value": "bpdcnet\\APB_Connect_To_PBI"
+			"value": "BPDCdes\\ceoviedo"
 		},
 		"SISBI_DEV_properties_typeProperties_userName": {
 			"value": "BPDCdes\\ceoviedo"

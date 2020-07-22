@@ -13,44 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Productos')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_Productos"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_ProvCantDistrito')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_ProvCantDistrito"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_RANGOS_TRANSACCIONALES')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -596,6 +558,78 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_TipodeClientes"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_TiposAgencia')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Tpa_PK_CodTipoAgencia",
+						"type": "smallint"
+					},
+					{
+						"name": "Tpa_DescripcionAgencia",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_TiposAgencia"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_TiposCambioBCCR')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Tcb_Id",
+						"type": "bigint"
+					},
+					{
+						"name": "Tcb_CompraBCCR",
+						"type": "decimal"
+					},
+					{
+						"name": "Tcb_VentaBCCR",
+						"type": "decimal"
+					},
+					{
+						"name": "Tcb_FechaBCCR",
+						"type": "date"
+					},
+					{
+						"name": "Tcb_CompraT24",
+						"type": "decimal"
+					},
+					{
+						"name": "Tcb_VentaT24",
+						"type": "decimal"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_TiposCambioBCCR"
 				}
 			},
 			"dependsOn": []
