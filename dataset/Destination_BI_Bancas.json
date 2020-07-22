@@ -2,7 +2,7 @@
 	"name": "Destination_BI_Bancas",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "DL_DEV",
+			"referenceName": "SA_Popular",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
