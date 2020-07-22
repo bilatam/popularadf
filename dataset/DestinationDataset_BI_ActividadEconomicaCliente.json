@@ -2,16 +2,16 @@
 	"name": "DestinationDataset_BI_ActividadEconomicaCliente",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "DL_Popular",
+			"referenceName": "SA_Popular",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
-				"type": "AzureDataLakeStoreLocation",
+				"type": "AzureBlobFSLocation",
 				"fileName": "BI_ActividadEconomicaCliente",
-				"folderPath": "SISBI"
+				"fileSystem": "SISBI"
 			},
 			"compressionCodec": "snappy"
 		},
