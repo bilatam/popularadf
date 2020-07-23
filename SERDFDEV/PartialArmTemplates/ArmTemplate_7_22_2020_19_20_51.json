@@ -1,0 +1,767 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "SERDFDEV"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/Extraer_Principal')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Ini_Bitacora_Gener",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake Tablas Generales de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutándose",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "1",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Gener",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Extraer_General",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake Tablas Generales de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Finalizado Exitosamente",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_General_Error",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Extraer_General",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake Tablas Generales de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Fallido",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Extraer_General",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Ini_Bitacora_Gener",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "Extraer_General",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "Extraer_Cliente",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Ini_Bitacora_Cliente",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "Extraer_Cliente",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "Ini_Bitacora_Cliente",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake Tablas de Clientes de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutándose",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "1",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Cliente",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Extraer_Cliente",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake Tablas de Clientes de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Finalizado Exitosamente",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Cliente_Error",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Extraer_Cliente",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake Tablas de Clientes de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Fallido",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Ini_Bitacora_SegmentaCliente",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake tablas de Segmenta Clientes de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutándose",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "1",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Extraer_SegmentaCliente",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Ini_Bitacora_SegmentaCliente",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "Extraer_SegmentaCliente",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "Fin_Bitacora_SegmentaCliente",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Extraer_SegmentaCliente",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake tablas de Segmenta Clientes de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Finalizado Exitosamente",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_SegmentaCliente_Error",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Extraer_SegmentaCliente",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake Tablas de Segmenta Clientes de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Fallido",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Ini_Bitacora_Credito",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake Tablas de Crédito de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutándose",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "1",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Extraer_Credito",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Ini_Bitacora_Credito",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "Extraer_Credito",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Credito",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Extraer_Credito",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake Tablas de Crédito de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Finalizado Exitosamente",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Credito_Error",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Extraer_Credito",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake Tablas de Crédito de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Fallido",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Ini_Bitacora_Captacion",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake Tablas de Captación de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Ejecutándose",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "1",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Extraer_Captacion",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Ini_Bitacora_Captacion",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "Extraer_Captacion",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Captacion",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Extraer_Captacion",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake Tablas de Captación de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Finalizado Exitosamente",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Fin_Bitacora_Captacion_Error",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Extraer_Captacion",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InformacionBitacora]",
+							"storedProcedureParameters": {
+								"Evento": {
+									"value": "Extrae al Data Lake Tablas de Captación de SISBI",
+									"type": "String"
+								},
+								"Mensaje": {
+									"value": "Proceso Fallido",
+									"type": "String"
+								},
+								"Origen": {
+									"value": "Data Factory - Extraer_Principal",
+									"type": "String"
+								},
+								"TipoBitacora": {
+									"value": "2",
+									"type": "Int16"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "DW_Popular",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": []
+		}
+	]
+}
