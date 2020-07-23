@@ -7,10 +7,6 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "SERDFDEV"
 		},
-		"DL_Popular_servicePrincipalKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'servicePrincipalKey' of 'DL_Popular'"
-		},
 		"DW_Popular_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'DW_Popular'"
@@ -18,6 +14,10 @@
 		"DW_Popular_servicePrincipalKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'servicePrincipalKey' of 'DW_Popular'"
+		},
+		"SA_Popular_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'SA_Popular'"
 		},
 		"SISBI_connectionString": {
 			"type": "secureString",
@@ -35,30 +35,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SISBI_DEV'"
 		},
-		"SA_Popular_servicePrincipalKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'servicePrincipalKey' of 'SA_Popular'"
-		},
-		"DL_Popular_properties_typeProperties_dataLakeStoreUri": {
-			"type": "string",
-			"defaultValue": "https://dlprpbi.azuredatalakestore.net/webhdfs/v1"
-		},
-		"DL_Popular_properties_typeProperties_servicePrincipalId": {
-			"type": "string",
-			"defaultValue": "73f8f5d5-3c10-42c5-ac2c-25c1567761df"
-		},
-		"DL_Popular_properties_typeProperties_tenant": {
-			"type": "string",
-			"defaultValue": "6e852f85-8b27-4c6b-8ee2-181db2a7f482"
-		},
-		"DL_Popular_properties_typeProperties_subscriptionId": {
-			"type": "string",
-			"defaultValue": "3d2e514c-f131-45e2-822a-e81c79d51b94"
-		},
-		"DL_Popular_properties_typeProperties_resourceGroupName": {
-			"type": "string",
-			"defaultValue": "RG-PR-PBI-DataServices"
-		},
 		"DW_Popular_properties_typeProperties_servicePrincipalId": {
 			"type": "string",
 			"defaultValue": "82d16184-996c-4deb-8cc5-4d55c36cf225"
@@ -66,14 +42,6 @@
 		"DW_Popular_properties_typeProperties_tenant": {
 			"type": "string",
 			"defaultValue": "2d4feb35-6363-4b6c-94e0-a60d04fa4f02"
-		},
-		"SISBI_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "BPDCdes\\ceoviedo"
-		},
-		"SISBI_DEV_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "BPDCdes\\ceoviedo"
 		},
 		"SA_Popular_properties_typeProperties_url": {
 			"type": "string",
@@ -86,6 +54,14 @@
 		"SA_Popular_properties_typeProperties_servicePrincipalId": {
 			"type": "string",
 			"defaultValue": "82d16184-996c-4deb-8cc5-4d55c36cf225"
+		},
+		"SISBI_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "BPDCdes\\ceoviedo"
+		},
+		"SISBI_DEV_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "BPDCdes\\ceoviedo"
 		},
 		"containerUri": {
 			"type": "string",
@@ -114,9 +90,6 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"DL_Popular_servicePrincipalKey": {
-						"value": "[parameters('DL_Popular_servicePrincipalKey')]"
-					},
 					"DW_Popular_connectionString": {
 						"value": "[parameters('DW_Popular_connectionString')]"
 					},
@@ -125,21 +98,6 @@
 					},
 					"SA_Popular_servicePrincipalKey": {
 						"value": "[parameters('SA_Popular_servicePrincipalKey')]"
-					},
-					"DL_Popular_properties_typeProperties_dataLakeStoreUri": {
-						"value": "[parameters('DL_Popular_properties_typeProperties_dataLakeStoreUri')]"
-					},
-					"DL_Popular_properties_typeProperties_servicePrincipalId": {
-						"value": "[parameters('DL_Popular_properties_typeProperties_servicePrincipalId')]"
-					},
-					"DL_Popular_properties_typeProperties_tenant": {
-						"value": "[parameters('DL_Popular_properties_typeProperties_tenant')]"
-					},
-					"DL_Popular_properties_typeProperties_subscriptionId": {
-						"value": "[parameters('DL_Popular_properties_typeProperties_subscriptionId')]"
-					},
-					"DL_Popular_properties_typeProperties_resourceGroupName": {
-						"value": "[parameters('DL_Popular_properties_typeProperties_resourceGroupName')]"
 					},
 					"DW_Popular_properties_typeProperties_servicePrincipalId": {
 						"value": "[parameters('DW_Popular_properties_typeProperties_servicePrincipalId')]"
@@ -353,6 +311,15 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"SISBI_connectionString": {
+						"value": "[parameters('SISBI_connectionString')]"
+					},
+					"SISBI_password": {
+						"value": "[parameters('SISBI_password')]"
+					},
+					"SISBI_properties_typeProperties_userName": {
+						"value": "[parameters('SISBI_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -374,20 +341,11 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"SISBI_connectionString": {
-						"value": "[parameters('SISBI_connectionString')]"
-					},
-					"SISBI_password": {
-						"value": "[parameters('SISBI_password')]"
-					},
 					"SISBI_DEV_connectionString": {
 						"value": "[parameters('SISBI_DEV_connectionString')]"
 					},
 					"SISBI_DEV_password": {
 						"value": "[parameters('SISBI_DEV_password')]"
-					},
-					"SISBI_properties_typeProperties_userName": {
-						"value": "[parameters('SISBI_properties_typeProperties_userName')]"
 					},
 					"SISBI_DEV_properties_typeProperties_userName": {
 						"value": "[parameters('SISBI_DEV_properties_typeProperties_userName')]"
@@ -656,26 +614,6 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_23')]"
-			]
-		},
-		{
-			"name": "ArmTemplate_25",
-			"type": "Microsoft.Resources/deployments",
-			"apiVersion": "2018-02-01",
-			"properties": {
-				"mode": "incremental",
-				"templateLink": {
-					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_25.json', parameters('containerSasToken'))]",
-					"contentVersion": "1.0.0.0"
-				},
-				"parameters": {
-					"factoryName": {
-						"value": "[parameters('factoryName')]"
-					}
-				}
-			},
-			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_24')]"
 			]
 		}
 	]
