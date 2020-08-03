@@ -27,14 +27,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SISBI'"
 		},
-		"SISBI_DEV_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'SISBI_DEV'"
-		},
-		"SISBI_DEV_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'SISBI_DEV'"
-		},
 		"DW_Popular_properties_typeProperties_servicePrincipalId": {
 			"type": "string",
 			"defaultValue": "82d16184-996c-4deb-8cc5-4d55c36cf225"
@@ -56,10 +48,6 @@
 			"defaultValue": "82d16184-996c-4deb-8cc5-4d55c36cf225"
 		},
 		"SISBI_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "BPDCdes\\ceoviedo"
-		},
-		"SISBI_DEV_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "BPDCdes\\ceoviedo"
 		}
@@ -31865,30 +31853,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SISBI_DEV')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"connectionString": "[parameters('SISBI_DEV_connectionString')]",
-					"userName": "[parameters('SISBI_DEV_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('SISBI_DEV_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "PopularLocal",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/PopularLocal')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/CreditosTrigger')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -31910,38 +31874,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/IRPRPBI')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"description": "Integration Runtime PBI",
-				"typeProperties": {}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/PopularLocal')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"typeProperties": {}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/integrationRuntime1')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"typeProperties": {}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/irprpbiAzure')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
 			"properties": {

@@ -20,12 +20,6 @@
 		"SISBI_password": {
 			"value": ""
 		},
-		"SISBI_DEV_connectionString": {
-			"value": ""
-		},
-		"SISBI_DEV_password": {
-			"value": ""
-		},
 		"DW_Popular_properties_typeProperties_servicePrincipalId": {
 			"value": "82d16184-996c-4deb-8cc5-4d55c36cf225"
 		},
@@ -42,9 +36,6 @@
 			"value": "82d16184-996c-4deb-8cc5-4d55c36cf225"
 		},
 		"SISBI_properties_typeProperties_userName": {
-			"value": "BPDCdes\\ceoviedo"
-		},
-		"SISBI_DEV_properties_typeProperties_userName": {
 			"value": "BPDCdes\\ceoviedo"
 		},
 		"containerUri": {

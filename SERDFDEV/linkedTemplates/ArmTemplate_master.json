@@ -27,14 +27,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SISBI'"
 		},
-		"SISBI_DEV_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'SISBI_DEV'"
-		},
-		"SISBI_DEV_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'SISBI_DEV'"
-		},
 		"DW_Popular_properties_typeProperties_servicePrincipalId": {
 			"type": "string",
 			"defaultValue": "82d16184-996c-4deb-8cc5-4d55c36cf225"
@@ -56,10 +48,6 @@
 			"defaultValue": "82d16184-996c-4deb-8cc5-4d55c36cf225"
 		},
 		"SISBI_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "BPDCdes\\ceoviedo"
-		},
-		"SISBI_DEV_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "BPDCdes\\ceoviedo"
 		},
@@ -340,15 +328,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"SISBI_DEV_connectionString": {
-						"value": "[parameters('SISBI_DEV_connectionString')]"
-					},
-					"SISBI_DEV_password": {
-						"value": "[parameters('SISBI_DEV_password')]"
-					},
-					"SISBI_DEV_properties_typeProperties_userName": {
-						"value": "[parameters('SISBI_DEV_properties_typeProperties_userName')]"
 					}
 				}
 			},
