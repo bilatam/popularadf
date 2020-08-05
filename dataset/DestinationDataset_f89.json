@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "dbo.BI_SegmentaClientesCierreHist.parquet",
 				"fileSystem": "sisbi"
 			},
 			"compressionCodec": "snappy"
