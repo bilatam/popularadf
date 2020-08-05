@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "BI_Estacionalidad_creditos",
 				"fileSystem": "sisbi"
 			},
 			"compressionCodec": "snappy"
