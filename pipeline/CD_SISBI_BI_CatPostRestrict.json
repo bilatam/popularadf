@@ -25,7 +25,8 @@
 				],
 				"typeProperties": {
 					"source": {
-						"type": "SqlServerSource"
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT [Prt_pk_Id]\n      ,[Prt_Descripcion]\n      ,[Prt_Tipo Descripcion] AS [Prt_TipoDescripcion]\n      ,[Prt_TablaT24]\n  FROM [dbo].[BI_CatPostRestrict]"
 					},
 					"sink": {
 						"type": "ParquetSink",
