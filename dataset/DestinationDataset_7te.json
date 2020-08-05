@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "dbo.BI_PatronosSicere.parquet",
 				"fileSystem": "sisbi"
 			},
 			"compressionCodec": "snappy"
