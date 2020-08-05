@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "dbo.BI_EstadosClientesPAS.parquet",
 				"fileSystem": "sisbi"
 			},
 			"compressionCodec": "snappy"
