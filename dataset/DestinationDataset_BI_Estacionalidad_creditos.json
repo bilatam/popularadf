@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "BI_Estacionalidad_creditos",
+				"fileName": "dbo.BI_Estacionalidad_creditos.parquet",
 				"fileSystem": "sisbi"
 			},
 			"compressionCodec": "snappy"
