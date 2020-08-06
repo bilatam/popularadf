@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "BI_PeriodosSalariosSicere",
+				"fileName": "dbo.BI_PeriodosSalariosSicere.parquet",
 				"fileSystem": "sisbi"
 			},
 			"compressionCodec": "snappy"
