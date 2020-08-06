@@ -85,7 +85,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -147,7 +148,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -209,7 +211,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -271,7 +274,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -333,7 +337,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -395,7 +400,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -457,7 +463,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -519,7 +526,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -581,7 +589,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -643,7 +652,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -705,7 +715,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -767,7 +778,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -829,7 +841,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -891,7 +904,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -953,7 +967,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1015,7 +1030,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1077,7 +1093,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1139,7 +1156,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1201,7 +1219,9 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"sqlReaderQuery": "SELECT [Prt_pk_Id]\n      ,[Prt_Descripcion]\n      ,[Prt_Tipo Descripcion] AS [Prt_TipoDescripcion]\n      ,[Prt_TablaT24]\n  FROM [dbo].[BI_CatPostRestrict]",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1263,7 +1283,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1325,7 +1346,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1387,7 +1409,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1449,7 +1472,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1511,7 +1535,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1573,7 +1598,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1635,7 +1661,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1697,7 +1724,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1759,7 +1787,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1821,7 +1850,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1883,7 +1913,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -1945,7 +1976,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -2007,7 +2039,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -2069,7 +2102,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -2131,7 +2165,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -2193,7 +2228,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -2255,7 +2291,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -2317,7 +2354,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -2379,7 +2417,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -2441,12 +2480,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -2503,12 +2543,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -2565,7 +2606,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -2627,7 +2669,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -2689,7 +2732,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -2751,7 +2795,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -2813,12 +2858,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -2875,7 +2921,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -2937,7 +2984,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -2999,7 +3047,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -3061,7 +3110,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -3124,12 +3174,13 @@
 						"typeProperties": {
 							"source": {
 								"type": "SqlServerSource",
-								"sqlReaderQuery": "SELECT [CANTIDAD]\n      ,[IUC]\n      ,[NUMERO DE CEDULA] AS NumeroDeCedula\n      ,[CLIENTE]\n      ,[NUEVO EJECUTIVO] AS NuevoEjecutivo\n  FROM [dbo].[BI_IUCMetasFinanciero]"
+								"sqlReaderQuery": "SELECT [CANTIDAD]\n      ,[IUC]\n      ,[NUMERO DE CEDULA] AS NumeroDeCedula\n      ,[CLIENTE]\n      ,[NUEVO EJECUTIVO] AS NuevoEjecutivo\n  FROM [dbo].[BI_IUCMetasFinanciero]",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -3186,7 +3237,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -3248,7 +3300,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -3310,7 +3363,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -3372,7 +3426,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -3434,12 +3489,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -3496,12 +3552,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -3558,7 +3615,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -3620,7 +3678,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -3682,7 +3741,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -3744,7 +3804,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -3806,7 +3867,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -3868,7 +3930,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -3930,7 +3993,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -3992,7 +4056,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -4054,7 +4119,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -4116,12 +4182,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -4178,7 +4245,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -4240,7 +4308,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -4302,7 +4371,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -4364,7 +4434,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -4426,7 +4497,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -4493,7 +4565,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -4560,7 +4633,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -4622,7 +4696,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -4684,7 +4759,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -4746,12 +4822,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -4809,7 +4886,8 @@
 						"typeProperties": {
 							"source": {
 								"type": "SqlServerSource",
-								"sqlReaderQuery": "SELECT [Ptr_Id]\n      ,[Ptr_PK_Cedula]\n      ,[Ptr_NumPatrono]\n      ,[Ptr_Nombre]\n      ,[Ptr_Direccion]\n      ,[Ptr_Telefono]\n      ,[Ptr_CodDistrito]\n  FROM dbo.[BI_PatronosSIC]\n  WHERE [Ptr_Id] BETWEEN  1 AND 25\n"
+								"sqlReaderQuery": "SELECT [Ptr_Id]\n      ,[Ptr_PK_Cedula]\n      ,[Ptr_NumPatrono]\n      ,[Ptr_Nombre]\n      ,[Ptr_Direccion]\n      ,[Ptr_Telefono]\n      ,[Ptr_CodDistrito]\n  FROM dbo.[BI_PatronosSIC]\n  WHERE [Ptr_Id] BETWEEN  1 AND 25\n",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -4871,7 +4949,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -4933,12 +5012,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -4995,12 +5075,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -5057,7 +5138,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -5119,7 +5201,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -5181,7 +5264,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -5243,7 +5327,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -5305,7 +5390,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -5367,7 +5453,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -5429,7 +5516,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -5491,7 +5579,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -5553,7 +5642,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -5615,12 +5705,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -5677,12 +5768,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -5739,7 +5831,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -5801,12 +5894,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -5863,7 +5957,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -5925,12 +6020,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -5987,12 +6083,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -6049,12 +6146,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -6111,12 +6209,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -6173,7 +6272,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -6235,7 +6335,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -6297,7 +6398,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -6359,7 +6461,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -6421,7 +6524,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -6483,7 +6587,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -6545,7 +6650,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -6607,7 +6713,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -6669,7 +6776,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -6731,7 +6839,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -6793,7 +6902,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -6855,7 +6965,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -6917,7 +7028,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -6979,7 +7091,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -7041,12 +7154,13 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								}
 							},
 							"enableStaging": false
@@ -7103,7 +7217,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -7203,55 +7318,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/Extraer_Principal')]",
-				"[concat(variables('factoryId'), '/pipelines/SP_DWH_Extraer_Principal')]",
-				"[concat(variables('factoryId'), '/pipelines/Transformacion_DWH')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Ejecucion_Principal_copy1')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "SP_DWH_Extraer_Principal",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "SP_DWH_Extraer_Principal",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "Transformacion_DWH",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "SP_DWH_Extraer_Principal",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "Transformacion_DWH",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/SP_DWH_Extraer_Principal')]",
 				"[concat(variables('factoryId'), '/pipelines/Transformacion_DWH')]"
 			]
@@ -23218,6 +23284,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_SectorCliHist.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -23266,6 +23333,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_PasivosSaldosHist.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -23290,6 +23358,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_PatronosSicere.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -23626,6 +23695,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_CatPostRestrict.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -23962,6 +24032,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_Estacionalidad_Meta_Captacion.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -23986,6 +24057,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_Estacionalidad_creditos.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -24178,6 +24250,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_IUCMetasFinanciero.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -24298,6 +24371,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_Meta_Captaciones.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -24322,6 +24396,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_MetasCreditos.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -24466,6 +24541,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_OperacionesHist.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -24760,6 +24836,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_ResumenClientesPas.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -24784,6 +24861,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_SegmentaClientes.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -24808,6 +24886,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_SegmentoBancaCliente.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -24952,6 +25031,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.TPR_BCOSectEconBCCR.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -25000,6 +25080,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_SegmentaClientesCierre.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -25072,6 +25153,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_SegmentaClientesCierreHist.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -25192,6 +25274,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_EstadosClientesPAS.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -25288,6 +25371,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_PeriodosSalariosSicere.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -25984,6 +26068,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_ResuSICERE.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"

@@ -158,6 +158,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_CatPostRestrict.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"

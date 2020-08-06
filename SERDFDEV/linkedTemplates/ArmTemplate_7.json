@@ -48,6 +48,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_OperacionesHist.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -318,6 +319,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_ResumenClientesPas.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -340,6 +342,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_SegmentaClientes.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -362,6 +365,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_SegmentoBancaCliente.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"

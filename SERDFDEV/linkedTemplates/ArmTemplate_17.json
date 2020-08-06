@@ -450,7 +450,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -509,7 +510,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -568,7 +570,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -627,7 +630,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",
@@ -686,7 +690,8 @@
 						],
 						"typeProperties": {
 							"source": {
-								"type": "SqlServerSource"
+								"type": "SqlServerSource",
+								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "ParquetSink",

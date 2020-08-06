@@ -260,6 +260,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_SectorCliHist.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -304,6 +305,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_PasivosSaldosHist.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -326,6 +328,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_PatronosSicere.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"

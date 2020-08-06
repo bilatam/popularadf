@@ -26,6 +26,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_Estacionalidad_Meta_Captacion.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -48,6 +49,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_Estacionalidad_creditos.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -224,6 +226,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_IUCMetasFinanciero.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -334,6 +337,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_Meta_Captaciones.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
@@ -356,6 +360,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": "dbo.BI_MetasCreditos.parquet",
 						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
