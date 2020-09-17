@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "BORREME_TALLER",
+				"fileName": "BORREME_TALLER2",
 				"fileSystem": "sisbi"
 			},
 			"columnDelimiter": ",",
