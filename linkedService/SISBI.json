@@ -5,9 +5,9 @@
 		"annotations": [],
 		"type": "SqlServer",
 		"typeProperties": {
-			"connectionString": "integrated security=True;data source=10.0.222.32;initial catalog=SISBI",
+			"connectionString": "integrated security=True;data source=VM-QADAT02;initial catalog=SISBI",
 			"userName": "BPDCdes\\ceoviedo",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI3MTE4OTM1ZC0zNDM2LTQyYjYtOTdjMy04MTNjNzczOGNkYWEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1ZWFmMjFjNy1kNTc3LTRkM2QtYWZiMi1hMjgyZTQ5NThkNDciLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "PopularLocal",
