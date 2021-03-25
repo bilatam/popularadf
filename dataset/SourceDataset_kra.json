@@ -1,0 +1,236 @@
+{
+	"name": "SourceDataset_kra",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Tcr_Id",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "Tcr_PK_NumTarjeta",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_Cuenta",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_FK_IdCliente",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 0
+			},
+			{
+				"name": "Tcr_Cedula",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_Bin",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_TipoCompro",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_ClaseTarjeta",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_FechaEmision",
+				"type": "date"
+			},
+			{
+				"name": "Tcr_FechaVenc",
+				"type": "date"
+			},
+			{
+				"name": "Tcr_EstadoTarjeta",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_FechaUltPagoColones",
+				"type": "date"
+			},
+			{
+				"name": "Tcr_FechaUltPagoDolares",
+				"type": "date"
+			},
+			{
+				"name": "Tcr_Agencia",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_FechaVencCuenta",
+				"type": "date"
+			},
+			{
+				"name": "Tcr_FechaVencPago",
+				"type": "date"
+			},
+			{
+				"name": "Tcr_TipoOpesEsp",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_FechaOpesEsp",
+				"type": "date"
+			},
+			{
+				"name": "Tcr_CicloCorte",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_EstadoCuenta",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_EstadoTarjet",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_EstadoCred",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_LocAsoCue",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_FechaApertura",
+				"type": "date"
+			},
+			{
+				"name": "Tcr_TasaInter",
+				"type": "decimal",
+				"precision": 4,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_LimCreditoColones",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_LimCreditoDolares",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_SaldoActualColones",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_SaldoActualDolares",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_SaldoVenColones",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_SaldoVenDolares",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_SaldoDispColones",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_SaldoDispDolares",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_PagoMinColones",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_PagoMinDolares",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_PagoContadoColones",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_PagoContadoDolares",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_MontoUltPagoColones",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_MontoUltPagoDolares",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_SaldoFine",
+				"type": "decimal",
+				"precision": 12,
+				"scale": 2
+			},
+			{
+				"name": "Tcr_FechaCarga",
+				"type": "date"
+			},
+			{
+				"name": "Tcr_OrigenCre",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_EstadoProd",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_NombreAdic",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_CtaIBANColones",
+				"type": "varchar"
+			},
+			{
+				"name": "Tcr_CtaIBANDolares",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_TarjetasCredito"
+		}
+	}
+}
