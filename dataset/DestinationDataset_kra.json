@@ -1,0 +1,19 @@
+{
+	"name": "DestinationDataset_kra",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SA_Popular",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "sisbi"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
