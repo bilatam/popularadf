@@ -13,6 +13,72 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_OperacionesHist')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_OperacionesHist"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_OperacionesHist1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_OperacionesHist"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_OperadoraDePensiones')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "ODP_PK_Id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ODP_Descripcion",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_OperadoraDePensiones"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_OrigenDePatrimonio')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -971,153 +1037,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_Responsables"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_ResuSICERE')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "Sicere",
-					"table": "BI_ResuSICERE"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_ResumenClientesPas')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Rcp_PK_IdClienteT24",
-						"type": "decimal"
-					},
-					{
-						"name": "Rcp_PK_FechaDatos",
-						"type": "date"
-					},
-					{
-						"name": "Rcp_PatronoSalarioM",
-						"type": "varchar"
-					},
-					{
-						"name": "Rcp_UltimaFechaPago",
-						"type": "datetime"
-					},
-					{
-						"name": "Rcp_FechaInicioPas",
-						"type": "datetime"
-					},
-					{
-						"name": "Rcp_CantidadPatronos",
-						"type": "int"
-					},
-					{
-						"name": "Rcp_CantidadPagos",
-						"type": "int"
-					},
-					{
-						"name": "Rcp_Oficina",
-						"type": "int"
-					},
-					{
-						"name": "Rcp_Canal",
-						"type": "varchar"
-					},
-					{
-						"name": "Rcp_MontoPagos",
-						"type": "decimal"
-					},
-					{
-						"name": "Rcp_UltFecPagoAnterior",
-						"type": "datetime"
-					},
-					{
-						"name": "Rcp_Sector",
-						"type": "varchar"
-					},
-					{
-						"name": "Rcp_SectorEmp",
-						"type": "varchar"
-					},
-					{
-						"name": "Rcp_RazonSocial",
-						"type": "varchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "Pas",
-					"table": "BI_ResumenClientesPas"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_SaldosPorClientes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Spc_IdSaldo",
-						"type": "bigint"
-					},
-					{
-						"name": "Spc_FK_IdCliente",
-						"type": "bigint"
-					},
-					{
-						"name": "Spc_CantidadProduct",
-						"type": "int"
-					},
-					{
-						"name": "Spc_MontoSaldo",
-						"type": "decimal"
-					},
-					{
-						"name": "Spc_Moneda",
-						"type": "varchar"
-					},
-					{
-						"name": "Spc_CodProducto",
-						"type": "int"
-					},
-					{
-						"name": "Spc_Producto",
-						"type": "varchar"
-					},
-					{
-						"name": "Spc_FechaActualizacion",
-						"type": "date"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_SaldosPorClientes"
 				}
 			},
 			"dependsOn": []

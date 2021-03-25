@@ -65,7 +65,7 @@
 	},
 	"resources": [
 		{
-			"name": "ArmTemplate_0",
+			"name": "SERDFDEV_ArmTemplate_0",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -107,7 +107,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "ArmTemplate_1",
+			"name": "SERDFDEV_ArmTemplate_1",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -123,11 +123,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_0')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_0')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_2",
+			"name": "SERDFDEV_ArmTemplate_2",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -143,11 +143,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_1')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_1')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_3",
+			"name": "SERDFDEV_ArmTemplate_3",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -163,11 +163,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_2')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_2')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_4",
+			"name": "SERDFDEV_ArmTemplate_4",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -183,11 +183,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_3')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_3')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_5",
+			"name": "SERDFDEV_ArmTemplate_5",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -203,11 +203,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_4')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_4')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_6",
+			"name": "SERDFDEV_ArmTemplate_6",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -223,11 +223,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_5')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_5')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_7",
+			"name": "SERDFDEV_ArmTemplate_7",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -243,11 +243,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_6')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_6')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_8",
+			"name": "SERDFDEV_ArmTemplate_8",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -263,11 +263,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_7')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_7')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_9",
+			"name": "SERDFDEV_ArmTemplate_9",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -283,11 +283,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_8')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_8')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_10",
+			"name": "SERDFDEV_ArmTemplate_10",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -312,11 +312,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_9')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_9')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_11",
+			"name": "SERDFDEV_ArmTemplate_11",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -332,11 +332,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_10')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_10')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_12",
+			"name": "SERDFDEV_ArmTemplate_12",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -352,11 +352,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_11')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_11')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_13",
+			"name": "SERDFDEV_ArmTemplate_13",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -372,11 +372,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_12')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_12')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_14",
+			"name": "SERDFDEV_ArmTemplate_14",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -392,11 +392,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_13')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_13')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_15",
+			"name": "SERDFDEV_ArmTemplate_15",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -412,11 +412,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_14')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_14')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_16",
+			"name": "SERDFDEV_ArmTemplate_16",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -432,11 +432,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_15')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_15')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_17",
+			"name": "SERDFDEV_ArmTemplate_17",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -452,11 +452,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_16')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_16')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_18",
+			"name": "SERDFDEV_ArmTemplate_18",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -472,11 +472,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_17')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_17')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_19",
+			"name": "SERDFDEV_ArmTemplate_19",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -492,11 +492,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_18')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_18')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_20",
+			"name": "SERDFDEV_ArmTemplate_20",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -512,11 +512,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_19')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_19')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_21",
+			"name": "SERDFDEV_ArmTemplate_21",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -532,11 +532,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_20')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_20')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_22",
+			"name": "SERDFDEV_ArmTemplate_22",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -552,11 +552,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_21')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_21')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_23",
+			"name": "SERDFDEV_ArmTemplate_23",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -572,11 +572,11 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_22')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_22')]"
 			]
 		},
 		{
-			"name": "ArmTemplate_24",
+			"name": "SERDFDEV_ArmTemplate_24",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
@@ -592,7 +592,7 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_23')]"
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_23')]"
 			]
 		}
 	]
