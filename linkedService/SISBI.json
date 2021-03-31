@@ -7,7 +7,7 @@
 		"typeProperties": {
 			"connectionString": "integrated security=True;data source=VM-QADAT02;initial catalog=SISBI",
 			"userName": "BPDCdes\\ceoviedo",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1ZWFmMjFjNy1kNTc3LTRkM2QtYWZiMi1hMjgyZTQ5NThkNDciLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIyYzEyOTRjMi1lYmJkLTQ0OTQtYjMwZS0xYWZkYmEwNDY5YWYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "PopularLocal",
