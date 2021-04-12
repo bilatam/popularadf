@@ -1,0 +1,60 @@
+{
+	"name": "CD_SISBI_TransT24_BI_FundsTransferHist",
+	"properties": {
+		"description": "TransT24 template",
+		"activities": [
+			{
+				"name": "CD_SISBI_TransT24_BI_FundsTransferHist",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "TransT24.BI_FundsTransfer"
+					},
+					{
+						"name": "Destination",
+						"value": "sisbi//"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false
+				},
+				"inputs": [
+					{
+						"referenceName": "Source_BI_FundsTransferHist",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Destination_BI_FundsTransferHist",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
