@@ -13,6 +13,42 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_5w0')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Prt_pk_Id",
+						"type": "int"
+					},
+					{
+						"name": "Prt_Descripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "Prt_Tipo Descripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "Prt_TablaT24",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_CatPostRestrict"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_665')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -533,42 +569,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_CarteraPriorizada"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_CatPostRestrict')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Prt_pk_Id",
-						"type": "int"
-					},
-					{
-						"name": "Prt_Descripcion",
-						"type": "varchar"
-					},
-					{
-						"name": "Prt_Tipo Descripcion",
-						"type": "varchar"
-					},
-					{
-						"name": "Prt_TablaT24",
-						"type": "varchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_CatPostRestrict"
 				}
 			},
 			"dependsOn": []
