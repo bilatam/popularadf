@@ -4,7 +4,7 @@
 		"description": "TransT24 template",
 		"activities": [
 			{
-				"name": "Copy_qsd",
+				"name": "CD_SISBI_TransT24_TableName",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
