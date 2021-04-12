@@ -13,6 +13,129 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_ProvCantDistrito')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_ProvCantDistrito"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_RANGOS_TRANSACCIONALES')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "RT_PK_Id",
+						"type": "varchar"
+					},
+					{
+						"name": "RT_Descripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "RT_TIPO_CLIENTE",
+						"type": "varchar"
+					},
+					{
+						"name": "RT_FK_ID",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_RANGOS_TRANSACCIONALES"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Rangos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Ran_PK_CodRango",
+						"type": "smallint"
+					},
+					{
+						"name": "Ran_InicioRango",
+						"type": "varchar"
+					},
+					{
+						"name": "Ran_FinRango",
+						"type": "varchar"
+					},
+					{
+						"name": "Ran_Descripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "Ran_TipoRango",
+						"type": "smallint"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_Rangos"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Regiones')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Reg_PK_CodRegion",
+						"type": "smallint"
+					},
+					{
+						"name": "Reg_DescripcionRegion",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_Regiones"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Responsables')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -482,216 +605,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_TiposAgencia"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_TiposCambioBCCR')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Tcb_Id",
-						"type": "bigint"
-					},
-					{
-						"name": "Tcb_CompraBCCR",
-						"type": "decimal"
-					},
-					{
-						"name": "Tcb_VentaBCCR",
-						"type": "decimal"
-					},
-					{
-						"name": "Tcb_FechaBCCR",
-						"type": "date"
-					},
-					{
-						"name": "Tcb_CompraT24",
-						"type": "decimal"
-					},
-					{
-						"name": "Tcb_VentaT24",
-						"type": "decimal"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_TiposCambioBCCR"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_TiposDestinos')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_TiposDestinos"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_TiposGarantia')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_TiposGarantia"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_TotalSaldCliGen')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Spc_FechaActualizacion",
-						"type": "date"
-					},
-					{
-						"name": "Spc_FK_IdCliente",
-						"type": "bigint"
-					},
-					{
-						"name": "Tot_CantCuenCorr",
-						"type": "int"
-					},
-					{
-						"name": "Tot_SaldCtasCorr",
-						"type": "decimal"
-					},
-					{
-						"name": "Tot_CantVoluntario",
-						"type": "int"
-					},
-					{
-						"name": "Tot_SaldVoluntario",
-						"type": "decimal"
-					},
-					{
-						"name": "Tot_CantProgra",
-						"type": "int"
-					},
-					{
-						"name": "Tot_SaldProgra",
-						"type": "decimal"
-					},
-					{
-						"name": "Tot_Cantplazo",
-						"type": "int"
-					},
-					{
-						"name": "Tot_SaldPlazo",
-						"type": "decimal"
-					},
-					{
-						"name": "Tot_CantCredFinan",
-						"type": "int"
-					},
-					{
-						"name": "Tot_SaldCredfiana",
-						"type": "decimal"
-					},
-					{
-						"name": "Tot_CantCredDesa",
-						"type": "int"
-					},
-					{
-						"name": "Tot_SaldCredDesa",
-						"type": "decimal"
-					},
-					{
-						"name": "Tot_CantCredSoci",
-						"type": "int"
-					},
-					{
-						"name": "Tot_SaldCredSoci",
-						"type": "decimal"
-					},
-					{
-						"name": "Tot_CantVisa",
-						"type": "int"
-					},
-					{
-						"name": "Tot_SaldCredVisa",
-						"type": "decimal"
-					},
-					{
-						"name": "Tot_CantGaraHipot",
-						"type": "int"
-					},
-					{
-						"name": "Tot_SaldCredGaranHipotec",
-						"type": "decimal"
-					},
-					{
-						"name": "Tot_CantCredPerHipo",
-						"type": "int"
-					},
-					{
-						"name": "Tot_SaldCredPersoHipo",
-						"type": "decimal"
-					},
-					{
-						"name": "Tot_CantCredVivi",
-						"type": "int"
-					},
-					{
-						"name": "Tot_SaldCredVivi",
-						"type": "decimal"
-					},
-					{
-						"name": "Tot_CantNaranja",
-						"type": "int"
-					},
-					{
-						"name": "Tot_SaldNaranja",
-						"type": "decimal"
-					},
-					{
-						"name": "T_tarjeDebito",
-						"type": "nchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_TotalSaldCliGen"
 				}
 			},
 			"dependsOn": []
