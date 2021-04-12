@@ -13,6 +13,25 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_CaptaCuotas')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_CaptaCuotas"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_CarteraPriorizada')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -902,74 +921,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_EjecutivosBanco"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_EjecutivosDesarro')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Dse_PK_Identificador",
-						"type": "bigint"
-					},
-					{
-						"name": "Dse_FK_CodOficina",
-						"type": "int"
-					},
-					{
-						"name": "Dse_CedVendedor",
-						"type": "varchar"
-					},
-					{
-						"name": "Dse_FK_CodVend",
-						"type": "varchar"
-					},
-					{
-						"name": "Dse_Nombre",
-						"type": "varchar"
-					},
-					{
-						"name": "Dse_Estado",
-						"type": "varchar"
-					},
-					{
-						"name": "Dse_OPD",
-						"type": "varchar"
-					},
-					{
-						"name": "Dse_Perfil",
-						"type": "varchar"
-					},
-					{
-						"name": "Dse_FecIngBD",
-						"type": "date"
-					},
-					{
-						"name": "Dse_FecIngBPDC",
-						"type": "date"
-					},
-					{
-						"name": "Dse_Correo",
-						"type": "varchar"
-					},
-					{
-						"name": "Dse_Telefonos",
-						"type": "varchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_EjecutivosDesarro"
 				}
 			},
 			"dependsOn": []

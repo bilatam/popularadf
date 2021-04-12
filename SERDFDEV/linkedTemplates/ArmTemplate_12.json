@@ -13,6 +13,118 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_4fc')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Bde_Provincia",
+						"type": "smallint"
+					},
+					{
+						"name": "Bde_Numero",
+						"type": "int"
+					},
+					{
+						"name": "Bde_Duplicado",
+						"type": "varchar"
+					},
+					{
+						"name": "Bde_Horizontal",
+						"type": "varchar"
+					},
+					{
+						"name": "Bde_Derecho",
+						"type": "smallint"
+					},
+					{
+						"name": "Bde_TipoIdent",
+						"type": "smallint"
+					},
+					{
+						"name": "Bde_NumeroIdent",
+						"type": "varchar"
+					},
+					{
+						"name": "Bde_ConsecIdent",
+						"type": "int"
+					},
+					{
+						"name": "Bde_EstadoCivil",
+						"type": "varchar"
+					},
+					{
+						"name": "Bde_CodigoMoneda",
+						"type": "varchar"
+					},
+					{
+						"name": "Bde_Monto",
+						"type": "decimal"
+					},
+					{
+						"name": "Bde_CodDerecho",
+						"type": "varchar"
+					},
+					{
+						"name": "Bde_CodOperacion",
+						"type": "varchar"
+					},
+					{
+						"name": "Bde_Presentacion",
+						"type": "varchar"
+					},
+					{
+						"name": "Bde_FechaUltAct",
+						"type": "varchar"
+					},
+					{
+						"name": "Bde_CodProporc",
+						"type": "varchar"
+					},
+					{
+						"name": "Bde_Proporcion1",
+						"type": "decimal"
+					},
+					{
+						"name": "Bde_Proporcion2",
+						"type": "decimal"
+					},
+					{
+						"name": "Bde_CausaAdquis",
+						"type": "varchar"
+					},
+					{
+						"name": "Bde_Status",
+						"type": "varchar"
+					},
+					{
+						"name": "Bde_Otros",
+						"type": "varchar"
+					},
+					{
+						"name": "Bde_FormaPago",
+						"type": "varchar"
+					},
+					{
+						"name": "Bde_Opid",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_BIDerechos"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_4op')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -563,25 +675,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_CICDeudores"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_CaptaCuotas')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_CaptaCuotas"
 				}
 			},
 			"dependsOn": []

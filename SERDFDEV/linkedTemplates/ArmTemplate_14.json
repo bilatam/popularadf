@@ -13,6 +13,74 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_EjecutivosDesarro')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Dse_PK_Identificador",
+						"type": "bigint"
+					},
+					{
+						"name": "Dse_FK_CodOficina",
+						"type": "int"
+					},
+					{
+						"name": "Dse_CedVendedor",
+						"type": "varchar"
+					},
+					{
+						"name": "Dse_FK_CodVend",
+						"type": "varchar"
+					},
+					{
+						"name": "Dse_Nombre",
+						"type": "varchar"
+					},
+					{
+						"name": "Dse_Estado",
+						"type": "varchar"
+					},
+					{
+						"name": "Dse_OPD",
+						"type": "varchar"
+					},
+					{
+						"name": "Dse_Perfil",
+						"type": "varchar"
+					},
+					{
+						"name": "Dse_FecIngBD",
+						"type": "date"
+					},
+					{
+						"name": "Dse_FecIngBPDC",
+						"type": "date"
+					},
+					{
+						"name": "Dse_Correo",
+						"type": "varchar"
+					},
+					{
+						"name": "Dse_Telefonos",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_EjecutivosDesarro"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Estacionalidad_Meta_Captacion')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -740,25 +808,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_Monedas"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_NIVEL_ACADEMICO')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_NIVEL_ACADEMICO"
 				}
 			},
 			"dependsOn": []
