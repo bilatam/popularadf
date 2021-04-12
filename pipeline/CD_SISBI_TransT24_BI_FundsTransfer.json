@@ -4,6 +4,7 @@
 		"activities": [
 			{
 				"name": "CD_SISBI_TransT24_BI_FundsTransfer",
+				"description": "",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
