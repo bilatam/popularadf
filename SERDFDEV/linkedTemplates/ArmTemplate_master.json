@@ -299,15 +299,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"SISBI_connectionString": {
-						"value": "[parameters('SISBI_connectionString')]"
-					},
-					"SISBI_password": {
-						"value": "[parameters('SISBI_password')]"
-					},
-					"SISBI_properties_typeProperties_userName": {
-						"value": "[parameters('SISBI_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -328,6 +319,15 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"SISBI_connectionString": {
+						"value": "[parameters('SISBI_connectionString')]"
+					},
+					"SISBI_password": {
+						"value": "[parameters('SISBI_password')]"
+					},
+					"SISBI_properties_typeProperties_userName": {
+						"value": "[parameters('SISBI_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -593,6 +593,26 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_23')]"
+			]
+		},
+		{
+			"name": "SERDFDEV_ArmTemplate_25",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_25.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'SERDFDEV_ArmTemplate_24')]"
 			]
 		}
 	]

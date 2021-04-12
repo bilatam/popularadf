@@ -6,12 +6,46 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "SERDFDEV"
+		},
+		"SISBI_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SISBI'"
+		},
+		"SISBI_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SISBI'"
+		},
+		"SISBI_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "BPDCdes\\ceoviedo"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/SISBI')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"connectionString": "[parameters('SISBI_connectionString')]",
+					"userName": "[parameters('SISBI_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('SISBI_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "PopularLocal",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SP_DWH_Elimina_Stage')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
@@ -2198,7 +2232,9 @@
 					"table": "BI_OperacionesDiarias"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_26d')]",
@@ -2217,7 +2253,9 @@
 					"table": "BI_PeriodosSalariosSicere"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_283')]",
@@ -2236,7 +2274,9 @@
 					"table": "BI_SegmentaClientes"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_3g4')]",
@@ -2255,7 +2295,9 @@
 					"table": "BI_OperacionesHist"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_4fc')]",
@@ -2367,7 +2409,9 @@
 					"table": "BI_BIDerechos"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_4op')]",
@@ -2399,7 +2443,9 @@
 					"table": "BI_SectorCliHist"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_5w0')]",
@@ -2435,7 +2481,9 @@
 					"table": "BI_CatPostRestrict"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_665')]",
@@ -2454,7 +2502,9 @@
 					"table": "BI_PasivosSaldosHist"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_7te')]",
@@ -2473,7 +2523,9 @@
 					"table": "BI_PatronosSicere"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_96k')]",
@@ -2492,7 +2544,9 @@
 					"table": "BI_BMPrestaciones"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_ActividadEconomicaCliente')]",
@@ -2548,26 +2602,9 @@
 					"table": "BI_ActividadEconomicaCliente"
 				}
 			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_AfiCapAge')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_AfiCapAge"
-				}
-			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
 		}
 	]
 }
