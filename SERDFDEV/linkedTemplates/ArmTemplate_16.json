@@ -13,6 +13,25 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_PatronosSIPO')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_PatronosSIPO"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_PersonalBP')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -887,50 +906,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_TipoDeduccion"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_TipoDocumentoCliente')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "TDC_PK_ID",
-						"type": "bigint"
-					},
-					{
-						"name": "TDC_Descripcion",
-						"type": "varchar"
-					},
-					{
-						"name": "TDC_DesGeneral",
-						"type": "varchar"
-					},
-					{
-						"name": "TDC_CodigoSUGEF",
-						"type": "int"
-					},
-					{
-						"name": "TDC_CodHacienda",
-						"type": "varchar"
-					},
-					{
-						"name": "TDC_DesHacienda",
-						"type": "varchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_TipoDocumentoCliente"
 				}
 			},
 			"dependsOn": []
