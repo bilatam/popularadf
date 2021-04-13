@@ -1080,7 +1080,7 @@
 		],
 		"typeProperties": {
 			"schema": "TransT24",
-			"table": "BI_FundsTransfer"
+			"table": "BI_SessionCustomerHist"
 		}
 	}
 }
