@@ -1,5 +1,5 @@
 {
-	"name": "Destination_TableName1",
+	"name": "Destination_BI_SessionCustomerHist",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SA_Popular",
