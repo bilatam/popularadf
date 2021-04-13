@@ -13,6 +13,38 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_ESTADO_DEL_CLIENTE')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "EDC_PK_Id",
+						"type": "decimal"
+					},
+					{
+						"name": "Descripcion",
+						"type": "nvarchar"
+					},
+					{
+						"name": "EDC_Descripcion_Corta",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_ESTADO_DEL_CLIENTE"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_EjecutivosBPGlobal')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -712,102 +744,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_MaestroDef11"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Meta_Captaciones')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Cat_pk_idCategoria",
-						"type": "float"
-					},
-					{
-						"name": "Cat_Descripcion",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Cat_Producto",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Cat_CodProducto",
-						"type": "float"
-					},
-					{
-						"name": "Cat_CodVencido",
-						"type": "bit"
-					},
-					{
-						"name": "Cat_AplicaProd",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Cat_Orden",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Cat_NombreCorto",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Age_PK_CodAgencia",
-						"type": "float"
-					},
-					{
-						"name": "Age_Nombre",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Sucursal",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Reg_Region",
-						"type": "nvarchar"
-					},
-					{
-						"name": "BZ_SubRegion",
-						"type": "nvarchar"
-					},
-					{
-						"name": "TO_TipoOficina",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Cod_RegAsig",
-						"type": "float"
-					},
-					{
-						"name": "Cod_SucuAsig",
-						"type": "float"
-					},
-					{
-						"name": "Cod_SubReg",
-						"type": "float"
-					},
-					{
-						"name": "Meta_Anual",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Anno",
-						"type": "float"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_Meta_Captaciones"
 				}
 			},
 			"dependsOn": []
