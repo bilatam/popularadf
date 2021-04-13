@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_0wd",
+				"name": "CD_SISBI_BI_TipoDocumentoCliente",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -25,19 +25,23 @@
 				],
 				"typeProperties": {
 					"source": {
-						"type": "SqlServerSource"
+						"type": "SqlServerSource",
+						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "ParquetSink",
 						"storeSettings": {
-							"type": "AzureDataLakeStoreWriteSettings"
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
 						}
 					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_BI_TipoDocumentoCliente",
+						"referenceName": "Source_BI_TipoDocumentoCliente",
 						"type": "DatasetReference"
 					}
 				],
