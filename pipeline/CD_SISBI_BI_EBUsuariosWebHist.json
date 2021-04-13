@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_u7t",
+				"name": "CD_SISBI_BI_EBUsuariosWebHist",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
