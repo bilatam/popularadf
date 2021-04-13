@@ -983,7 +983,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy_hby",
+						"name": "CD_SISBI_BI_EBUsuariosWeb",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -1011,21 +1011,24 @@
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
 								}
 							},
 							"enableStaging": false
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_BI_EBUsuariosWeb",
+								"referenceName": "Source_BI_EBUsuariosWeb",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_BI_EBUsuariosWeb",
+								"referenceName": "Destination_BI_EBUsuariosWeb",
 								"type": "DatasetReference",
 								"parameters": {}
 							}

@@ -2215,7 +2215,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy_hby",
+						"name": "CD_SISBI_BI_EBUsuariosWeb",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -2243,21 +2243,24 @@
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
 								}
 							},
 							"enableStaging": false
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_BI_EBUsuariosWeb",
+								"referenceName": "Source_BI_EBUsuariosWeb",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_BI_EBUsuariosWeb",
+								"referenceName": "Destination_BI_EBUsuariosWeb",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -2267,8 +2270,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_BI_EBUsuariosWeb')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_BI_EBUsuariosWeb')]"
+				"[concat(variables('factoryId'), '/datasets/Source_BI_EBUsuariosWeb')]",
+				"[concat(variables('factoryId'), '/datasets/Destination_BI_EBUsuariosWeb')]"
 			]
 		},
 		{
@@ -24359,7 +24362,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_BI_EBUsuariosWeb')]",
+			"name": "[concat(parameters('factoryName'), '/Destination_BI_EBUsuariosWeb')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -28692,7 +28695,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_EBUsuariosWeb')]",
+			"name": "[concat(parameters('factoryName'), '/Source_BI_EBUsuariosWeb')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
