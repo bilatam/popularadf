@@ -439,7 +439,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy_0dz",
+						"name": "CD_SISBI_BI_Clientes",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -467,14 +467,17 @@
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
 								}
 							},
 							"enableStaging": false
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_BI_Clientes",
+								"referenceName": "Source_BI_Clientes",
 								"type": "DatasetReference",
 								"parameters": {}
 							}

@@ -1771,7 +1771,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy_0dz",
+						"name": "CD_SISBI_BI_Clientes",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -1799,14 +1799,17 @@
 							"sink": {
 								"type": "ParquetSink",
 								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
 								}
 							},
 							"enableStaging": false
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_BI_Clientes",
+								"referenceName": "Source_BI_Clientes",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -1823,7 +1826,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_BI_Clientes')]",
+				"[concat(variables('factoryId'), '/datasets/Source_BI_Clientes')]",
 				"[concat(variables('factoryId'), '/datasets/Destination_BI_Clientes')]"
 			]
 		},
@@ -28072,7 +28075,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Clientes')]",
+			"name": "[concat(parameters('factoryName'), '/Source_BI_Clientes')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
