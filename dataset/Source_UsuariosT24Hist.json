@@ -1,0 +1,37 @@
+{
+	"name": "Source_UsuariosT24Hist",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Usr_FechaDatos",
+				"type": "date"
+			},
+			{
+				"name": "Usr_IdUsuario",
+				"type": "varchar"
+			},
+			{
+				"name": "Usr_NombreUsuario",
+				"type": "varchar"
+			},
+			{
+				"name": "Usr_AgenciasAuth",
+				"type": "varchar"
+			},
+			{
+				"name": "Usr_Agencia",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_UsuariosT24Hist"
+		}
+	}
+}
