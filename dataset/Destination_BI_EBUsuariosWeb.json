@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_BI_EBUsuariosWeb",
+	"name": "Destination_BI_EBUsuariosWeb",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SA_Popular",
