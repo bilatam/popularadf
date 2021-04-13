@@ -356,7 +356,8 @@
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobFSLocation"
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
 					},
 					"compressionCodec": "snappy"
 				},
