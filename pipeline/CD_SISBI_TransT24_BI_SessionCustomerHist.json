@@ -43,13 +43,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Source_TableName1",
+						"referenceName": "Source_BI_SessionCustomerHist",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Destination_TableName1",
+						"referenceName": "Destination_BI_SessionCustomerHist",
 						"type": "DatasetReference"
 					}
 				]
