@@ -718,7 +718,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy_fil",
+						"name": "CD_SISBI_UsuariosT24Hist",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
