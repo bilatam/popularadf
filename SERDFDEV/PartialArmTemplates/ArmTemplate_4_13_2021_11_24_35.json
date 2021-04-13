@@ -1,0 +1,359 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "SERDFDEV"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/CD_SISBI_BI_UsuariosT24')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "CD_SISBI_BI_UsuariosT24",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "dbo.BI_UsuariosT24"
+							},
+							{
+								"name": "Destination",
+								"value": "sisbi//"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false,
+							"validateDataConsistency": false
+						},
+						"inputs": [
+							{
+								"referenceName": "Source_BI_UsuariosT24",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "Destination_BI_UsuariosT24",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Source_BI_UsuariosT24')]",
+				"[concat(variables('factoryId'), '/datasets/Destination_BI_UsuariosT24')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CD_SISBI_UsuariosT24Hist')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_fil",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "dbo.BI_UsuariosT24Hist"
+							},
+							{
+								"name": "Destination",
+								"value": "sisbi//"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false,
+							"validateDataConsistency": false
+						},
+						"inputs": [
+							{
+								"referenceName": "Source_UsuariosT24Hist",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "Destination_UsuariosT24Hist",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Source_UsuariosT24Hist')]",
+				"[concat(variables('factoryId'), '/datasets/Destination_UsuariosT24Hist')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination_BI_UsuariosT24')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SA_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination_UsuariosT24Hist')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SA_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source_BI_UsuariosT24')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Usr_FechaDatos",
+						"type": "date"
+					},
+					{
+						"name": "Usr_IdUsuario",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_NombreUsr",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_FirmaUsr",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_Clasificacion",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_CodIdioma",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_AgenciasAuth",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_CodDepto",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_FechaVenciPswrd",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_FechaIniPerfil",
+						"type": "date"
+					},
+					{
+						"name": "Usr_FechaFinPerfil",
+						"type": "date"
+					},
+					{
+						"name": "Usr_FechaUltIngreso",
+						"type": "date"
+					},
+					{
+						"name": "Usr_TiempoUltIngreso",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Usr_ClaseAlerta",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_DatosLocales",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_Alertas",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_EstadoRegistro",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_CantModificaciones",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_Digitador",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_FechaHoraUltModf",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "Usr_Autorizador",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_Agencia",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_CodDeptoReg",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_CodigoAuditor",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_FechaHoraAuditor",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "Application",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_UsuariosT24"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source_UsuariosT24Hist')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Usr_FechaDatos",
+						"type": "date"
+					},
+					{
+						"name": "Usr_IdUsuario",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_NombreUsuario",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_AgenciasAuth",
+						"type": "varchar"
+					},
+					{
+						"name": "Usr_Agencia",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_UsuariosT24Hist"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
