@@ -1,0 +1,128 @@
+{
+	"name": "Source_BI_EBUsuariosWebHist",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SISBI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "EWH_FechaDatos",
+				"type": "date"
+			},
+			{
+				"name": "EWH_Usuario",
+				"type": "varchar"
+			},
+			{
+				"name": "EWH_FK_IdCliente",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "EWH_FK_CodAgencia",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "EWH_Canal",
+				"type": "varchar"
+			},
+			{
+				"name": "EWH_Estado",
+				"type": "varchar"
+			},
+			{
+				"name": "EWH_FechaInicio",
+				"type": "date"
+			},
+			{
+				"name": "EWH_FechaFin",
+				"type": "date"
+			},
+			{
+				"name": "EWH_EstadoActuaAuto",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "EWH_FechaActuaAuto",
+				"type": "date"
+			},
+			{
+				"name": "EWH_ReferenciaLocal",
+				"type": "varchar"
+			},
+			{
+				"name": "EWH_Cedula",
+				"type": "varchar"
+			},
+			{
+				"name": "EWH_Correo",
+				"type": "varchar"
+			},
+			{
+				"name": "EWH_Override",
+				"type": "varchar"
+			},
+			{
+				"name": "EWH_RecordStatus",
+				"type": "varchar"
+			},
+			{
+				"name": "EWH_NumModif",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "EWH_Digitador",
+				"type": "varchar"
+			},
+			{
+				"name": "EWH_FechaModif",
+				"type": "date"
+			},
+			{
+				"name": "EWH_Autorizador",
+				"type": "varchar"
+			},
+			{
+				"name": "EWH_CodDept",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "EWH_CodAudit",
+				"type": "varchar"
+			},
+			{
+				"name": "EWH_FechaAudit",
+				"type": "varchar"
+			},
+			{
+				"name": "EWH_FechasUltUso",
+				"type": "varchar"
+			},
+			{
+				"name": "EBW_Arreglo",
+				"type": "varchar"
+			},
+			{
+				"name": "EBW_UsrDigitador",
+				"type": "varchar"
+			},
+			{
+				"name": "EBW_UsrAutorizador",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BI_EBUsuariosWebHist"
+		}
+	}
+}
