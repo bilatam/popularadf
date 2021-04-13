@@ -1,5 +1,5 @@
 {
-	"name": "Source_TableName1",
+	"name": "Source_BI_SessionCustomerHist",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SISBI",
