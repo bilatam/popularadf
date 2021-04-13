@@ -1,5 +1,5 @@
 {
-	"name": "SourceDataset_BI_Clientes",
+	"name": "Source_BI_Clientes",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SISBI",
