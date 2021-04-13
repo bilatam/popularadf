@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_vap",
+				"name": "CD_SISBI_BI_UsuariosT24",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
