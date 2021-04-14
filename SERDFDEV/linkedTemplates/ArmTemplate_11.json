@@ -25,6 +25,28 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/Destination_BI_Sectores')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SA_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Destination_BI_SessionCustomerHist')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -439,229 +461,6 @@
 					"referenceName": "PopularLocal",
 					"type": "IntegrationRuntimeReference"
 				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SP_DWH_Elimina_Stage')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "SP_DWH_Elimina_Stage_General",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "Ini_Bitacora_Elimina_Stage",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "SP_DWH_Elimina_Stage_General",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "SP_DWH_Elimina_Stage_Cliente",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "SP_DWH_Elimina_Stage_General",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "SP_DWH_Elimina_Stage_Cliente",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "SP_DWH_Elimina_Stage_Credito",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "SP_DWH_Elimina_Stage_Cliente",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "SP_DWH_Elimina_Stage_Credito",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "SP_DWH_Elimina_Stage_Captacion",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "SP_DWH_Elimina_Stage_Credito",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "SP_DWH_Elimina_Stage_Captacion",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "Ini_Bitacora_Elimina_Stage",
-						"type": "SqlServerStoredProcedure",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"storedProcedureName": "[[dbo].[InformacionBitacora]",
-							"storedProcedureParameters": {
-								"Evento": {
-									"value": "Elimina Tablas del Stage",
-									"type": "String"
-								},
-								"Mensaje": {
-									"value": "Proceso Ejecutándose",
-									"type": "String"
-								},
-								"Origen": {
-									"value": "Data Factory - SP_DWH_Elimina_Stage",
-									"type": "String"
-								},
-								"TipoBitacora": {
-									"value": "1",
-									"type": "Int16"
-								}
-							}
-						},
-						"linkedServiceName": {
-							"referenceName": "DW_Popular",
-							"type": "LinkedServiceReference"
-						}
-					},
-					{
-						"name": "Fin_Bitacora_Elimina_Stage",
-						"type": "SqlServerStoredProcedure",
-						"dependsOn": [
-							{
-								"activity": "SP_DWH_Elimina_Stage_Captacion",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"storedProcedureName": "[[dbo].[InformacionBitacora]",
-							"storedProcedureParameters": {
-								"Evento": {
-									"value": "Elimina Tablas del Stage",
-									"type": "String"
-								},
-								"Mensaje": {
-									"value": "Proceso Finalizado Exitosamente",
-									"type": "String"
-								},
-								"Origen": {
-									"value": "Data Factory - SP_DWH_Elimina_Stage",
-									"type": "String"
-								},
-								"TipoBitacora": {
-									"value": "2",
-									"type": "Int16"
-								}
-							}
-						},
-						"linkedServiceName": {
-							"referenceName": "DW_Popular",
-							"type": "LinkedServiceReference"
-						}
-					},
-					{
-						"name": "Fin_Bitacora_Elimina_Stage_Error",
-						"type": "SqlServerStoredProcedure",
-						"dependsOn": [
-							{
-								"activity": "SP_DWH_Elimina_Stage_Captacion",
-								"dependencyConditions": [
-									"Failed"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"storedProcedureName": "[[dbo].[InformacionBitacora]",
-							"storedProcedureParameters": {
-								"Evento": {
-									"value": "Elimina Tablas del Stage",
-									"type": "String"
-								},
-								"Mensaje": {
-									"value": "Proceso Fallido",
-									"type": "String"
-								},
-								"Origen": {
-									"value": "Data Factory - SP_DWH_Elimina_Stage",
-									"type": "String"
-								},
-								"TipoBitacora": {
-									"value": "2",
-									"type": "Int16"
-								}
-							}
-						},
-						"linkedServiceName": {
-							"referenceName": "DW_Popular",
-							"type": "LinkedServiceReference"
-						}
-					}
-				],
-				"annotations": []
 			},
 			"dependsOn": []
 		}

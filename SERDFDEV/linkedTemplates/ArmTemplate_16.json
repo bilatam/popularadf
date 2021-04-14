@@ -13,6 +13,34 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_OperadoraDePensiones')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "ODP_PK_Id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ODP_Descripcion",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_OperadoraDePensiones"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_OrigenDePatrimonio')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1066,58 +1094,6 @@
 				"typeProperties": {
 					"schema": "Pas",
 					"table": "BI_ResumenClientesPas"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_SaldosPorClientes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Spc_IdSaldo",
-						"type": "bigint"
-					},
-					{
-						"name": "Spc_FK_IdCliente",
-						"type": "bigint"
-					},
-					{
-						"name": "Spc_CantidadProduct",
-						"type": "int"
-					},
-					{
-						"name": "Spc_MontoSaldo",
-						"type": "decimal"
-					},
-					{
-						"name": "Spc_Moneda",
-						"type": "varchar"
-					},
-					{
-						"name": "Spc_CodProducto",
-						"type": "int"
-					},
-					{
-						"name": "Spc_Producto",
-						"type": "varchar"
-					},
-					{
-						"name": "Spc_FechaActualizacion",
-						"type": "date"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_SaldosPorClientes"
 				}
 			},
 			"dependsOn": []

@@ -13,6 +13,58 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_SaldosPorClientes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Spc_IdSaldo",
+						"type": "bigint"
+					},
+					{
+						"name": "Spc_FK_IdCliente",
+						"type": "bigint"
+					},
+					{
+						"name": "Spc_CantidadProduct",
+						"type": "int"
+					},
+					{
+						"name": "Spc_MontoSaldo",
+						"type": "decimal"
+					},
+					{
+						"name": "Spc_Moneda",
+						"type": "varchar"
+					},
+					{
+						"name": "Spc_CodProducto",
+						"type": "int"
+					},
+					{
+						"name": "Spc_Producto",
+						"type": "varchar"
+					},
+					{
+						"name": "Spc_FechaActualizacion",
+						"type": "date"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_SaldosPorClientes"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Sectores')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -964,86 +1016,6 @@
 				"typeProperties": {
 					"schema": "Catalogos",
 					"table": "TPR_BCOSectEconBCCR"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_ai3')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Cartera/mes",
-						"type": "nvarchar"
-					},
-					{
-						"name": "CodCartera",
-						"type": "float"
-					},
-					{
-						"name": "enero",
-						"type": "float"
-					},
-					{
-						"name": "febrero",
-						"type": "float"
-					},
-					{
-						"name": "marzo",
-						"type": "float"
-					},
-					{
-						"name": "abril",
-						"type": "float"
-					},
-					{
-						"name": "mayo",
-						"type": "float"
-					},
-					{
-						"name": "junio",
-						"type": "float"
-					},
-					{
-						"name": "julio",
-						"type": "float"
-					},
-					{
-						"name": "agosto",
-						"type": "float"
-					},
-					{
-						"name": "septiembre",
-						"type": "float"
-					},
-					{
-						"name": "octubre",
-						"type": "float"
-					},
-					{
-						"name": "noviembre",
-						"type": "float"
-					},
-					{
-						"name": "diciembre",
-						"type": "float"
-					},
-					{
-						"name": "año",
-						"type": "float"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_Estacionalidad_creditos"
 				}
 			},
 			"dependsOn": []
