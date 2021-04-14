@@ -13,6 +13,58 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_CkCupones')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Ckc_Identificador",
+						"type": "decimal"
+					},
+					{
+						"name": "Ckc_FechaDatos",
+						"type": "date"
+					},
+					{
+						"name": "Ckc_TipoDato",
+						"type": "varchar"
+					},
+					{
+						"name": "Ckc_Fk_IdPasivo",
+						"type": "varchar"
+					},
+					{
+						"name": "Ckc_NumDato",
+						"type": "decimal"
+					},
+					{
+						"name": "Ckc_Fk_CodAgencia",
+						"type": "int"
+					},
+					{
+						"name": "Ckc_FechaVenci",
+						"type": "date"
+					},
+					{
+						"name": "Ckc_Monto",
+						"type": "decimal"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_CkCupones"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_CliExcluidos')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -466,34 +518,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_EstadoDelProducto"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_FinalidadDelProducto')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "FDP_PK_Id",
-						"type": "nvarchar"
-					},
-					{
-						"name": "FDP_Descripcion",
-						"type": "nvarchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_FinalidadDelProducto"
 				}
 			},
 			"dependsOn": []
