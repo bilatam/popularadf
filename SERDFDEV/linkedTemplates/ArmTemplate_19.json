@@ -13,6 +13,238 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/Source_BI_EBArreglos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "TDC_PK_ID",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "TDC_Descripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_DesGeneral",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_CodHacienda",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_DesHacienda",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_EBArreglos"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source_BI_EBDerechosUsuarios')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "TDC_PK_ID",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "TDC_Descripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_DesGeneral",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_CodHacienda",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_DesHacienda",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_EBDerechosUsuarios"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source_BI_EBUsuariosWeb')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_EBUsuariosWeb"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source_BI_EBUsuariosWebHist')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "EWH_FechaDatos",
+						"type": "date"
+					},
+					{
+						"name": "EWH_Usuario",
+						"type": "varchar"
+					},
+					{
+						"name": "EWH_FK_IdCliente",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "EWH_FK_CodAgencia",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "EWH_Canal",
+						"type": "varchar"
+					},
+					{
+						"name": "EWH_Estado",
+						"type": "varchar"
+					},
+					{
+						"name": "EWH_FechaInicio",
+						"type": "date"
+					},
+					{
+						"name": "EWH_FechaFin",
+						"type": "date"
+					},
+					{
+						"name": "EWH_EstadoActuaAuto",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "EWH_FechaActuaAuto",
+						"type": "date"
+					},
+					{
+						"name": "EWH_ReferenciaLocal",
+						"type": "varchar"
+					},
+					{
+						"name": "EWH_Cedula",
+						"type": "varchar"
+					},
+					{
+						"name": "EWH_Correo",
+						"type": "varchar"
+					},
+					{
+						"name": "EWH_Override",
+						"type": "varchar"
+					},
+					{
+						"name": "EWH_RecordStatus",
+						"type": "varchar"
+					},
+					{
+						"name": "EWH_NumModif",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "EWH_Digitador",
+						"type": "varchar"
+					},
+					{
+						"name": "EWH_FechaModif",
+						"type": "date"
+					},
+					{
+						"name": "EWH_Autorizador",
+						"type": "varchar"
+					},
+					{
+						"name": "EWH_CodDept",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "EWH_CodAudit",
+						"type": "varchar"
+					},
+					{
+						"name": "EWH_FechaAudit",
+						"type": "varchar"
+					},
+					{
+						"name": "EWH_FechasUltUso",
+						"type": "varchar"
+					},
+					{
+						"name": "EBW_Arreglo",
+						"type": "varchar"
+					},
+					{
+						"name": "EBW_UsrDigitador",
+						"type": "varchar"
+					},
+					{
+						"name": "EBW_UsrAutorizador",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_EBUsuariosWebHist"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Source_BI_FundsTransfer')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -7850,6 +8082,47 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Source_TableName21')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "TDC_PK_ID",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "TDC_Descripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_DesGeneral",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_CodHacienda",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_DesHacienda",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_TipoDocumentoCliente"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Source_UsuariosT24Hist')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -7885,47 +8158,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_UsuariosT24Hist"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Source_BI_EBDerechosUsuarios')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "TDC_PK_ID",
-						"type": "bigint",
-						"precision": 19
-					},
-					{
-						"name": "TDC_Descripcion",
-						"type": "varchar"
-					},
-					{
-						"name": "TDC_DesGeneral",
-						"type": "varchar"
-					},
-					{
-						"name": "TDC_CodHacienda",
-						"type": "varchar"
-					},
-					{
-						"name": "TDC_DesHacienda",
-						"type": "varchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_EBDerechosUsuarios"
 				}
 			},
 			"dependsOn": []
@@ -8166,246 +8398,6 @@
 						"outputs": [
 							{
 								"referenceName": "DestinationDataset_BI_AfiCapBP",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CD_SISBI_BI_AgeGestorCobro')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy_wdh",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [
-							{
-								"name": "Source",
-								"value": "dbo.BI_AgeGestorCobro"
-							},
-							{
-								"name": "Destination",
-								"value": "SISBI/BI_AgeGestorCobro"
-							}
-						],
-						"typeProperties": {
-							"source": {
-								"type": "SqlServerSource",
-								"partitionOption": "None"
-							},
-							"sink": {
-								"type": "ParquetSink",
-								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
-								}
-							},
-							"enableStaging": false
-						},
-						"inputs": [
-							{
-								"referenceName": "SourceDataset_BI_AgeGestorCobro",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "Destination_BI_AgeGestorCobro",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CD_SISBI_BI_AgenDesa')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy_5cg",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [
-							{
-								"name": "Source",
-								"value": "dbo.BI_AgenDesa"
-							},
-							{
-								"name": "Destination",
-								"value": "SISBI/BI_AgenDesa"
-							}
-						],
-						"typeProperties": {
-							"source": {
-								"type": "SqlServerSource",
-								"partitionOption": "None"
-							},
-							"sink": {
-								"type": "ParquetSink",
-								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
-								}
-							},
-							"enableStaging": false
-						},
-						"inputs": [
-							{
-								"referenceName": "SourceDataset_BI_AgenDesa",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "Destination_BI_AgenDesa",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CD_SISBI_BI_Agencias')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy_go0",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [
-							{
-								"name": "Source",
-								"value": "dbo.BI_Agencias"
-							},
-							{
-								"name": "Destination",
-								"value": "SISBI/BI_Agencias"
-							}
-						],
-						"typeProperties": {
-							"source": {
-								"type": "SqlServerSource",
-								"partitionOption": "None"
-							},
-							"sink": {
-								"type": "ParquetSink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
-								}
-							},
-							"enableStaging": false
-						},
-						"inputs": [
-							{
-								"referenceName": "SourceDataset_BI_Agencias",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "Destination_BI_Agencias",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CD_SISBI_BI_AmbitoActividadEcononica')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy_z5k",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [
-							{
-								"name": "Source",
-								"value": "dbo.BI_AmbitoActividadEcononica"
-							},
-							{
-								"name": "Destination",
-								"value": "SISBI/BI_AmbitoActividadEcononica"
-							}
-						],
-						"typeProperties": {
-							"source": {
-								"type": "SqlServerSource",
-								"partitionOption": "None"
-							},
-							"sink": {
-								"type": "ParquetSink",
-								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSettings"
-								}
-							},
-							"enableStaging": false
-						},
-						"inputs": [
-							{
-								"referenceName": "SourceDataset_BI_AmbitoActividadEcononica",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "DestinationDataset_BI_AmbitoActividadEcononica",
 								"type": "DatasetReference",
 								"parameters": {}
 							}

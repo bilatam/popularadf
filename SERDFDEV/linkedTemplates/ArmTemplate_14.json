@@ -13,6 +13,44 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_CuentContaCapta')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_CuentContaCapta"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_DatosLocalesAZ')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_DatosLocalesAZ"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_DatosLocalesCli')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -482,86 +520,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_IUCMetasFinanciero"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_IndicadoresMAPAM')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Mpm_pk_CodIndicador",
-						"type": "int"
-					},
-					{
-						"name": "Mpm_CategoriaInd",
-						"type": "varchar"
-					},
-					{
-						"name": "Mpm_DescripcionInd",
-						"type": "varchar"
-					},
-					{
-						"name": "Mpm_FechaActualiza",
-						"type": "date"
-					},
-					{
-						"name": "Mpm_EstadoInd",
-						"type": "bit"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_IndicadoresMAPAM"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_IndicadoresMAPAN')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Mpm_pk_CodIndicador",
-						"type": "int"
-					},
-					{
-						"name": "Mpm_CategoriaInd",
-						"type": "varchar"
-					},
-					{
-						"name": "Mpm_DescripcionInd",
-						"type": "varchar"
-					},
-					{
-						"name": "Mpm_FechaActualiza",
-						"type": "date"
-					},
-					{
-						"name": "Mpm_EstadoInd",
-						"type": "bit"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_IndicadoresMAPAM"
 				}
 			},
 			"dependsOn": []

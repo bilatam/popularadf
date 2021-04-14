@@ -13,6 +13,86 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_IndicadoresMAPAM')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Mpm_pk_CodIndicador",
+						"type": "int"
+					},
+					{
+						"name": "Mpm_CategoriaInd",
+						"type": "varchar"
+					},
+					{
+						"name": "Mpm_DescripcionInd",
+						"type": "varchar"
+					},
+					{
+						"name": "Mpm_FechaActualiza",
+						"type": "date"
+					},
+					{
+						"name": "Mpm_EstadoInd",
+						"type": "bit"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_IndicadoresMAPAM"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_IndicadoresMAPAN')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Mpm_pk_CodIndicador",
+						"type": "int"
+					},
+					{
+						"name": "Mpm_CategoriaInd",
+						"type": "varchar"
+					},
+					{
+						"name": "Mpm_DescripcionInd",
+						"type": "varchar"
+					},
+					{
+						"name": "Mpm_FechaActualiza",
+						"type": "date"
+					},
+					{
+						"name": "Mpm_EstadoInd",
+						"type": "bit"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_IndicadoresMAPAM"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_Lineas')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -718,53 +798,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_OrigenDePatrimonio"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_OrigenFondosMovilizar')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_OrigenFondosMovilizar"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_PaisNacionalidadCliente')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "PNC_PK_Id",
-						"type": "nvarchar"
-					},
-					{
-						"name": "PNC_Nombre_Corto",
-						"type": "nvarchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_PaisNacionalidadCliente"
 				}
 			},
 			"dependsOn": []
