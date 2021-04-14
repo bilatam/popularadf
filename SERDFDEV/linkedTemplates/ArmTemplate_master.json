@@ -319,15 +319,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"SISBI_connectionString": {
-						"value": "[parameters('SISBI_connectionString')]"
-					},
-					"SISBI_password": {
-						"value": "[parameters('SISBI_password')]"
-					},
-					"SISBI_properties_typeProperties_userName": {
-						"value": "[parameters('SISBI_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -348,6 +339,15 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"SISBI_connectionString": {
+						"value": "[parameters('SISBI_connectionString')]"
+					},
+					"SISBI_password": {
+						"value": "[parameters('SISBI_password')]"
+					},
+					"SISBI_properties_typeProperties_userName": {
+						"value": "[parameters('SISBI_properties_typeProperties_userName')]"
 					}
 				}
 			},

@@ -13,6 +13,73 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_PatronosSIC')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Ptr_Id",
+						"type": "bigint"
+					},
+					{
+						"name": "Ptr_PK_Cedula",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptr_NumPatrono",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptr_Nombre",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptr_Direccion",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptr_Telefono",
+						"type": "varchar"
+					},
+					{
+						"name": "Ptr_CodDistrito",
+						"type": "decimal"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_PatronosSIC"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_TPR_BCOSectEconBCCR')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "Catalogos",
+					"table": "TPR_BCOSectEconBCCR"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_ai3')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -3887,61 +3954,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_OperacionesHist"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_xdr')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Tmd_Id",
-						"type": "bigint"
-					},
-					{
-						"name": "Tmd_PK_CodTipoMoneda",
-						"type": "int"
-					},
-					{
-						"name": "Tmd_TipoMoneda",
-						"type": "varchar"
-					},
-					{
-						"name": "Tmd_FechaCarga",
-						"type": "datetime"
-					}
-				],
-				"typeProperties": {
-					"schema": "Comun",
-					"table": "BI_TiposMonedas"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_zih')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_PPPResumen"
 				}
 			},
 			"dependsOn": []

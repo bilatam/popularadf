@@ -2481,6 +2481,142 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/CD_SISBI_BI_EBGrupoSignatarioHist')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "dbo template",
+				"activities": [
+					{
+						"name": "CD_SISBI_BI_EBGrupoSignatarioHist",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "dbo.BI_TipoDocumentoCliente"
+							},
+							{
+								"name": "Destination",
+								"value": "sisbi//"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false,
+							"validateDataConsistency": false
+						},
+						"inputs": [
+							{
+								"referenceName": "Source_BI_EBGrupoSignatarioHist",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "Destination_BI_EBGrupoSignatarioHist",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Source_BI_EBGrupoSignatarioHist')]",
+				"[concat(variables('factoryId'), '/datasets/Destination_BI_EBGrupoSignatarioHist')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CD_SISBI_BI_EBIngresosWeb')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "dbo template",
+				"activities": [
+					{
+						"name": "CD_SISBI_BI_EBIngresosWeb",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "dbo.BI_TipoDocumentoCliente"
+							},
+							{
+								"name": "Destination",
+								"value": "sisbi//"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false,
+							"validateDataConsistency": false
+						},
+						"inputs": [
+							{
+								"referenceName": "Source_BI_EBIngresosWeb",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "Destination_BI_EBIngresosWeb",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Source_BI_EBIngresosWeb')]",
+				"[concat(variables('factoryId'), '/datasets/Destination_BI_EBIngresosWeb')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/CD_SISBI_BI_EBUsuariosWeb')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -26939,6 +27075,54 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Destination_BI_EBGrupoSignatarioHist')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SA_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SA_Popular')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Destination_BI_EBIngresosWeb')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SA_Popular",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sisbi"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SA_Popular')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Destination_BI_EBUsuariosWeb')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -38179,6 +38363,92 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_EBGrupoSignatario"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source_BI_EBGrupoSignatarioHist')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "TDC_PK_ID",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "TDC_Descripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_DesGeneral",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_CodHacienda",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_DesHacienda",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_EBGrupoSignatarioHist"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SISBI')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Source_BI_EBIngresosWeb')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "TDC_PK_ID",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "TDC_Descripcion",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_DesGeneral",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_CodHacienda",
+						"type": "varchar"
+					},
+					{
+						"name": "TDC_DesHacienda",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BI_EBIngresosWeb"
 				}
 			},
 			"dependsOn": [

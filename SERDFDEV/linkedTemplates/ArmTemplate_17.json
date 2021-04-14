@@ -13,6 +13,101 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_ResuSICERE')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "Sicere",
+					"table": "BI_ResuSICERE"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_ResumenClientesPas')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SISBI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "Rcp_PK_IdClienteT24",
+						"type": "decimal"
+					},
+					{
+						"name": "Rcp_PK_FechaDatos",
+						"type": "date"
+					},
+					{
+						"name": "Rcp_PatronoSalarioM",
+						"type": "varchar"
+					},
+					{
+						"name": "Rcp_UltimaFechaPago",
+						"type": "datetime"
+					},
+					{
+						"name": "Rcp_FechaInicioPas",
+						"type": "datetime"
+					},
+					{
+						"name": "Rcp_CantidadPatronos",
+						"type": "int"
+					},
+					{
+						"name": "Rcp_CantidadPagos",
+						"type": "int"
+					},
+					{
+						"name": "Rcp_Oficina",
+						"type": "int"
+					},
+					{
+						"name": "Rcp_Canal",
+						"type": "varchar"
+					},
+					{
+						"name": "Rcp_MontoPagos",
+						"type": "decimal"
+					},
+					{
+						"name": "Rcp_UltFecPagoAnterior",
+						"type": "datetime"
+					},
+					{
+						"name": "Rcp_Sector",
+						"type": "varchar"
+					},
+					{
+						"name": "Rcp_SectorEmp",
+						"type": "varchar"
+					},
+					{
+						"name": "Rcp_RazonSocial",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "Pas",
+					"table": "BI_ResumenClientesPas"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_BI_SaldosPorClientes')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -949,73 +1044,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "BI_MaestroOpe"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_PatronosSIC')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "Ptr_Id",
-						"type": "bigint"
-					},
-					{
-						"name": "Ptr_PK_Cedula",
-						"type": "varchar"
-					},
-					{
-						"name": "Ptr_NumPatrono",
-						"type": "varchar"
-					},
-					{
-						"name": "Ptr_Nombre",
-						"type": "varchar"
-					},
-					{
-						"name": "Ptr_Direccion",
-						"type": "varchar"
-					},
-					{
-						"name": "Ptr_Telefono",
-						"type": "varchar"
-					},
-					{
-						"name": "Ptr_CodDistrito",
-						"type": "decimal"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BI_PatronosSIC"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_TPR_BCOSectEconBCCR')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SISBI",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "Catalogos",
-					"table": "TPR_BCOSectEconBCCR"
 				}
 			},
 			"dependsOn": []
